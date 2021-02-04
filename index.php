@@ -56,7 +56,7 @@
             <button type="button" onclick="window.location.href = 'LED.php';" class="btn  btn-lg btn-options" style="background:rgb(149, 50, 168); color:white;">LED</button>
         </div>
         <div class="d-flex justify-content-center">
-            <button type="button" onclick="window.location.href = 'lights.php';" class="btn  btn-lg btn-options" style="background:rgb(255, 186, 0);">Lights</button>
+            <button type="button" onclick="window.location.href = 'lights.php';" class="btn  btn-lg btn-options" style="background:rgb(255, 186, 0);">Living Room Lights</button>
         </div>
 
         <div class="d-flex justify-content-center">

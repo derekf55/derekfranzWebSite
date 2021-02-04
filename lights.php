@@ -33,9 +33,9 @@
         
         <?php
         require "php/connect.php";
-        $sql = 'SELECT Name,State,Appliance FROM homeAutomation;';
-	$results = mysqli_query($conn,$sql);
-	while ($row = mysqli_fetch_assoc($results)){
+        $sql = "SELECT Name,State,Appliance FROM homeAutomation WHERE groupName = 'Living_Room';";
+	    $results = mysqli_query($conn,$sql);
+	    while ($row = mysqli_fetch_assoc($results)){
             $name = $row['Name'];
             $state = $row['State'];
             $appliance = $row['Appliance'];
