@@ -60,6 +60,10 @@
         </div>
 
         <div class="d-flex justify-content-center">
+            <button type="button" onclick="window.location.href = 'bedRoom.php';" class="btn  btn-lg btn-options" style="background:rgb(189, 174, 9);">Bed Room Lights</button>
+        </div>
+
+        <div class="d-flex justify-content-center">
             <button type="button" onclick="window.location.href = 'php/addCommand.php?command=Donny';" class="btn  btn-lg btn-options" style="background:rgb(133, 51, 45); color:white;">Generate Donny Quote</button>
         </div>
         <div class="d-flex justify-content-center">
