@@ -37,7 +37,7 @@
   <div class="container-fluid main-view">
 
         <div class="d-flex justify-content-center ">
-            <button type="button" onclick="window.location.href = 'php/addCommand.php?command=power';" 
+            <button type="button" onclick="window.location.href = 'php/addCommand.php?command=LEDpower';" 
             class="btn btn-primary btn-lg btn-options">Power</button>
         </div>
         <div class="d-flex justify-content-center ">
