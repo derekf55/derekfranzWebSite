@@ -30,6 +30,7 @@
   </head>
   <body>
   <div class="container-fluid main-view">
+  <!--
         <div class="d-flex justify-content-center ">
             <button type="button" onclick="window.location.href = 'php/addCommand.php?command=PCOn';" class="btn btn-primary btn-lg btn-options">Wake PC</button>
         </div>
@@ -42,7 +43,7 @@
         <div class="d-flex justify-content-center">
             <button type="button" onclick="window.location.href = 'php/addCommand.php?command=PCOff';" class="btn btn-info btn-lg btn-options">Shutdown PC</button>
         </div>
-
+        -->
         <div class="d-flex justify-content-center">
             <button type="button" onclick="window.location.href = 'tvRemote.php';" class="btn btn-dark btn-lg btn-options">TV Remote</button>
         </div>
