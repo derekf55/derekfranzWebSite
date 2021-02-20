@@ -29,50 +29,28 @@
     </style>
   </head>
   <body>
-  <div class="container-fluid main-view">
-  <!--
-        <div class="d-flex justify-content-center ">
-            <button type="button" onclick="window.location.href = 'php/addCommand.php?command=PCOn';" class="btn btn-primary btn-lg btn-options">Wake PC</button>
-        </div>
-        <div class="d-flex justify-content-center">
-            <button type="button" onclick="window.location.href = 'php/addCommand.php?command=WindowsOn';" class="btn btn-success btn-lg btn-options">Start Windows</button>
-        </div>
-        <div class="d-flex justify-content-center">
-            <button type="button" onclick="window.location.href = 'php/addCommand.php?command=WindowsOff';" class="btn btn-danger btn-lg btn-options">Shutdown Windows</button>
-        </div>    
-        <div class="d-flex justify-content-center">
-            <button type="button" onclick="window.location.href = 'php/addCommand.php?command=PCOff';" class="btn btn-info btn-lg btn-options">Shutdown PC</button>
-        </div>
-        -->
-        <div class="d-flex justify-content-center">
-            <button type="button" onclick="window.location.href = 'tvRemote.php';" class="btn btn-dark btn-lg btn-options">TV Remote</button>
-        </div>
-        <div class="d-flex justify-content-center">
-            <button type="button" onclick="window.location.href = 'MarioKartTrackPicker/index.php';" class="btn  btn-lg btn-options" style="background:rgb(201, 89, 32);color:white;">Mario Kart Track Picker</button>
-        </div>
+
+  <?php
+  session_start();
+  include 'php/connect.php';
+      if(isset($_SESSION['uid'])){
+          if ($_SESSION['userType'] == "admin"){
+            header("Location: admin_ui.php");
+            exit();
+          } else {
+            header("Location: main_ui.php");
+            exit();
+          }
+        
+      }
+      else{
+        header("Location: login.php");
+        exit();
+        
+      }
+    ?>
 
 
-
-        <div class="d-flex justify-content-center">
-            <button type="button" onclick="window.location.href = 'LED.php';" class="btn  btn-lg btn-options" style="background:rgb(149, 50, 168); color:white;">LED</button>
-        </div>
-        <div class="d-flex justify-content-center">
-            <button type="button" onclick="window.location.href = 'lights.php';" class="btn  btn-lg btn-options" style="background:rgb(255, 186, 0);">Living Room Lights</button>
-        </div>
-
-        <div class="d-flex justify-content-center">
-            <button type="button" onclick="window.location.href = 'bedRoom.php';" class="btn  btn-lg btn-options" style="background:rgb(189, 174, 9);">Bed Room Lights</button>
-        </div>
-
-        <div class="d-flex justify-content-center">
-            <button type="button" onclick="window.location.href = 'php/addCommand.php?command=Donny';" class="btn  btn-lg btn-options" style="background:rgb(133, 51, 45); color:white;">Generate Donny Quote</button>
-        </div>
-        <div class="d-flex justify-content-center">
-            <button type="button" onclick="window.location.href = 'homeManagement.php';" class="btn  btn-lg btn-options" style="background:rgb(20, 115, 128); color:white;">Home Management</button>
-        </div>
-            
-        </div>
-  </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

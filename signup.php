@@ -1,9 +1,13 @@
 <!DOCTYPE html>
-
 <html lang="en" class="gr__getbootstrap_com"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
+    
+    <title>Sign Up</title>
+
+    
+
+     <!-- Required meta tags -->
+     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -12,7 +16,6 @@
     <link rel="icon" type="image/png" sizes="192x192" href="img/icon-192.png">
     <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon-180.png">
 
-    <title>Login</title>
 
     <style>
       .bd-placeholder-img {
@@ -38,78 +41,85 @@
   <main role="main" class="container">
   
           
-    <form class="form-signin" action="php/process_login.php" method="POST">
+    <form class="form-signin" action="php/usersignup.php" method="POST">
     <?php
           if (isset($_GET['error'])){
-            if ($_GET['error'] == 'emptyfield'){
+            //Empty Fields
+            if ($_GET['error'] == 'emptyfields'){
               echo '<div class="alert alert-warning alert-dismissible fade show " role="alert">
-                <strong>Error:</strong> Please enter a username and password
+                <strong>Error:</strong> Please fill out all fields
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button></div>';}
-            
+            //SQL Error
             else if ($_GET['error'] == 'sql'){
                 echo '<div class="alert alert-warning alert-dismissible fade show " role="alert">
-                <strong>Error</strong> Something went wrong :(
+                <strong>Error:</strong> Something went wrong :(
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button></div>';
             }
-            else if ($_GET['error'] == 'wrongpass'){
+            //Password mismatch
+            else if ($_GET['error'] == 'passwordmismatch'){
               echo '<div class="alert alert-warning alert-dismissible fade show " role="alert">
-              <strong>Error:</strong> Sorry, your password is incorrect
+              <strong>Error:</strong> Sorry, your passwords didn\'t match.  Please try again.
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button></div>';
           }
-          else if ($_GET['error'] == 'nouser'){
+            // If the password doesn't meet the requirnments
+            else if ($_GET['error'] == 'passwordlength'){
+              echo '<div class="alert alert-warning alert-dismissible fade show " role="alert">
+              <strong>Error:</strong> Password must be at least 8 characters long
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button></div>';
+          }
+          //Invalid E-mail
+          else if ($_GET['error'] == 'invaildemail'){
             echo '<div class="alert alert-warning alert-dismissible fade show " role="alert">
-            <strong>Error:</strong> Sorry, looks you aren\'t signed up.  Click below to create an account
+            <strong>Error:</strong> Please enter a valid E-mail
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button></div>';
         }
-          
-          }
-        if (isset($_GET['password'])){
-          if ($_GET['password'] == 'reset'){
-            echo '<div class="alert alert-success alert-dismissible fade show " role="alert">
-                        <h4 class="alert-heading">Sucess</h4>
-                        <p>Your password has been reset</p>
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                        </button>
-                        </div>';
-          }
+          // If the email is already in the database
+          else if ($_GET['error'] == 'emailused'){
+            echo '<div class="alert alert-warning alert-dismissible fade show " role="alert">
+            <strong>Error:</strong> Sorry that email has already been used
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button></div>';
         }
-        if (isset($_GET['reset'])){
-          if($_GET['reset'] == 'sucess'){
+        //SQL Error
+        else if ($_GET['error'] == 'sqlerror'){
           echo '<div class="alert alert-warning alert-dismissible fade show " role="alert">
-          <strong>Sucess</strong> A reset e-mail has been sent 
+          <strong>Error:</strong> An error occured
+          Please try again
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button></div>';
-      
+      }
+          
           }
-        
-        }
           ?>
   <img class="mb-4" src="img/icons8-home.svg" alt="" width="150" height="150">
-  <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1>
-  <label for="inputEmail" class="sr-only" >Email address</label>
-  <input name="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" value="
-    <?php 
+  <h1 class="h3 mb-3 font-weight-normal">Welecome to Blue Haus</h1>
+  <label for="inputEmail" class="sr-only">Email address</label>
+  <input name="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus=""
+  value ="<?php 
     if (isset($_GET['email'])){
       echo $_GET['email'];
     }
     ?>" autofocus="">
-
-
+  
+  
   <label for="inputPassword" class="sr-only">Password</label>
   <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
-  <button name="login-submit" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-  <p class="mt-4 mb-3 text-muted">New User? Click <a href="signup.php">here</a> to sign up</p>
-  <p class="mt-4 mb-3 text-muted"><a href="forgot_pass_form.php">Forgot password</a></p>
+  <label for="inputPassword2" class="sr-only">Password</label>
+  <input name="password2" type="password" id="inputPassword2" class="form-control" placeholder="Re-type Password" required="">
+  <button id="signup" name="signup" class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
+  <p class="mt-4 mb-3 text-muted">Already have an account? Click <a href="login.php">here</a> to login</p>
   <p class="mt-5 mb-3 text-muted">© Derek Franz</p>
 </form>
 

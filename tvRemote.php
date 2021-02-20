@@ -39,6 +39,11 @@
     </style>
   </head>
   <body>
+
+    <?php
+        require 'php/header.php';
+    ?>
+
   <div class="container-fluid main-view">
         <div class="d-flex justify-content-center ">
             <button type="button" onclick="window.location.href = 'php/addCommand.php?command=TVPower';" 

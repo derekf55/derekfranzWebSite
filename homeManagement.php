@@ -38,6 +38,7 @@
   <?php
 
         require "php/connect.php";
+        require "php/admin_header.php";
         #$sql = 'SELECT macToName.Name, WifiInfo.last_seen 
         #FROM `WifiInfo` JOIN macToName ON macToName.MacAddress = WifiInfo.MacAddress 
         #WHERE WifiInfo.last_seen > CURRENT_TIMESTAMP - INTERVAL 5 MINUTE 
