@@ -9,7 +9,7 @@ if(isset($_POST['reset'])){
     $token = random_bytes(32);
 
     //url to send user to for password reset
-    $url = 'https://derekfranz.live/homework_v5/create-new-pass.php?selector='.$selector.'&validator='.bin2hex($token);
+    $url = 'https://derekfranz.ddns.net/create-new-pass.php?selector='.$selector.'&validator='.bin2hex($token);
 
     //Expiration time for user to reset their password
     //date(u) = current time and 1800 is 1 hour in seconds
@@ -90,10 +90,10 @@ $mail->SMTPSecure = 'tls';
 $mail->SMTPAuth = true;
 
 //Username to use for SMTP authentication - use full email address for gmail
-$mail->Username = "derekfranz.live@gmail.com";
+$mail->Username = $emailUserName;
 
 //Password to use for SMTP authentication
-$mail->Password = "3mt<3Q{c";
+$mail->Password = $emailPassword
 
 //Set who the message is to be sent from
 $mail->setFrom('derekfranz.live@gmail.com', 'Derek Franz');
