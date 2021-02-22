@@ -44,7 +44,8 @@
         
       }
       else{
-        header("Location: login.php");
+        //header("Location: login.php");
+        require 'login.php';
         exit();
         
       }
