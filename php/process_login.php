@@ -33,6 +33,8 @@ if (isset($_POST['login-submit'])){
                     $_SESSION['uid'] = $row['userid'];
                     $_SESSION['useremail'] = $row['email'];
                     $_SESSION['userType'] = $row['UserType'];
+                    setcookie("rememberme", $row['userid'], time() + (86400 * 80), '/');
+                    //setcookie("userType", $row['UserType'], time() + (86400 * 80), '/');
                     header("Location: ../index.php?login=sucess");
                     
                 }
