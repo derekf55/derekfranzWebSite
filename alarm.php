@@ -29,6 +29,9 @@
             width: 300px;
             margin-bottom: 20px;
         }
+        .my-header{
+          margin-bottom: 20px;
+        }
 
         }
     </style>
@@ -36,6 +39,10 @@
   <body>
   <div class="container-fluid main-view">
         <form action="php/set_alarm.php" method="POST">
+          <div class="d-flex justify-content-center">
+            <h2 class="my-header">Set an alarm to flicker the lights<h2s>
+          </div>
+
         <div class="d-flex justify-content-center">
                 <input class="form-control timepicker time-input" name="alarm" id="alarm" type="time">
         </div>
