@@ -48,6 +48,26 @@
         </div>
 
         <div class="d-flex justify-content-center">
+        <div class="input-group mb-3 time-input">
+          <select class="custom-select selector" id="Room" name="Room">
+            <option selected>Choose...</option>
+
+            <?php
+                require "php/connect.php";
+                $sql = "SELECT DISTINCT groupName FROM homeAutomation WHERE groupName != 'Remotes';";
+                $results = mysqli_query($conn,$sql);
+                while ($row = mysqli_fetch_assoc($results)){
+                    echo $row['groupName'];
+                    $groupName = $row['groupName'];
+                    echo '<option name="Room" value="'.$groupName.'">'.$groupName.'</option>';
+                
+                }
+                ?>
+        </select>
+        </div>
+        </div>
+
+        <div class="d-flex justify-content-center">
         <button id="submit" name="submit" type="submit" class="btn btn-primary btn-lg btn-options">Submit</button>
 
         </div>
