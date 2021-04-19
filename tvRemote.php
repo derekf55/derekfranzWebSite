@@ -34,8 +34,20 @@
             margin-bottom: 20px;
             display:block;
             width: 150px;
-
         }
+        .button-volMany{
+            margin-bottom:10px;
+            margin-bottom: 20px;
+            display:block;
+            width: 150px;
+        }
+        .button-vol{
+            margin-bottom:10px;
+            margin-bottom: 20px;
+            display:block;
+            width: 200px;
+        }
+
     </style>
   </head>
   <body>
@@ -59,10 +71,14 @@
             class="btn btn-lg btn-options" style="background:rgb(52, 120, 140);color:white;">Mute</button>
         </div>
         <div class="d-flex justify-content-center">
+            <button type="button" onclick="window.location.href = 'php/addCommand.php?command=VolumeDown5';" 
+            class="btn btn-dark btn-lg button-volMany button-side">- 5</button>
             <button type="button" onclick="window.location.href = 'php/addCommand.php?command=VolumeDown';" 
-            class="btn btn-dark btn-lg btn-options button-side">Volume Down</button>
+            class="btn btn-dark btn-lg button-vol button-side">Volume Down</button>
             <button type="button" onclick="window.location.href = 'php/addCommand.php?command=VolumeUp';" 
-            class="btn btn-info btn-lg btn-options button-side">Volume Up</button>
+            class="btn btn-info btn-lg button-vol button-side">Volume Up</button>
+            <button type="button" onclick="window.location.href = 'php/addCommand.php?command=VolumeUp5';" 
+            class="btn btn-info btn-lg button-volMany button-side">+ 5</button>
         </div>
         <div class="d-flex justify-content-center">
             <button type="button" onclick="window.location.href = 'php/addCommand.php?command=TVup';" 
