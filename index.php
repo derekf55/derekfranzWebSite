@@ -71,9 +71,12 @@
             <button type="button" onclick="window.location.href = 'homeManagement.php';" class="btn  btn-lg btn-options" style="background:rgb(20, 115, 128); color:white;">Home Management</button>
         </div>
         <div class="d-flex justify-content-center">
-            <button type="button" onclick="window.location.href = 'alarm.php';" class="btn btn-danger btn-lg btn-options" >Alarm</button>
+            <button type="button" onclick="window.location.href = 'alarm.php';" class="btn btn-danger btn-lg btn-options" >Set Alarm</button>
         </div>
-            
+        <div class="d-flex justify-content-center">
+            <button type="button" onclick="window.location.href = 'alarmViewer.php';" class="btn  btn-lg btn-options" style="background:rgb(52, 191, 89); color:white;">View Alarms</button>
+        </div>
+        
         </div>
   </div>
     <!-- Optional JavaScript -->

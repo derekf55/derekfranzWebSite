@@ -50,11 +50,10 @@
         <div class="d-flex justify-content-center">
         <div class="input-group mb-3 time-input">
           <select class="custom-select selector" id="Room" name="Room">
-            <option selected>Choose...</option>
 
             <?php
                 require "php/connect.php";
-                $sql = "SELECT DISTINCT groupName FROM homeAutomation WHERE groupName != 'Remotes';";
+                $sql = "SELECT DISTINCT groupName FROM homeAutomation WHERE groupName != 'Remotes' order by groupName ;";
                 $results = mysqli_query($conn,$sql);
                 while ($row = mysqli_fetch_assoc($results)){
                     echo $row['groupName'];
