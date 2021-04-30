@@ -24,6 +24,8 @@ if (isset($_GET['command'])){
         $command = substr($command,0,-1);
     }
 
+    
+
     do {
 
         // If the command is meant for the pi
@@ -64,6 +66,28 @@ if (isset($_GET['command'])){
         $x--;
     } while ($x > 0);
 
+} else{
+    if (isset($_GET['specialVol'])){
+        echo 'ye';
+        for ($i = 0; $i < 35; $i++){
+            $sql = 'INSERT INTO ProcessToRun (Command,Server) VALUES(?,"Pi");';
+            $stmt = mysqli_stmt_init($conn);
+            
+            // If the statement fails to execute  
+            if (!mysqli_stmt_prepare($stmt,$sql)){
+                echo "Failed to execute SQL";
+                exit();
+            // If the statement executes sucessfully 
+            }else{
+                $x = "VolumeDown";
+                mysqli_stmt_bind_param($stmt,"s",$x);
+                mysqli_stmt_execute($stmt);
+                //header('Location: ' . $_SERVER['HTTP_REFERER']);
+            }
+        }
+        
+            
+    }
 }
 
 ?>

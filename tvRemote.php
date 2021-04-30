@@ -70,6 +70,8 @@
             <button type="button" onclick="window.location.href = 'php/addCommand.php?command=Mute';" 
             class="btn btn-lg btn-options" style="background:rgb(52, 120, 140);color:white;">Mute</button>
         </div>
+        
+
         <div class="d-flex justify-content-center">
             <button type="button" onclick="window.location.href = 'php/addCommand.php?command=VolumeDown5';" 
             class="btn btn-dark btn-lg button-volMany button-side">- 5</button>
