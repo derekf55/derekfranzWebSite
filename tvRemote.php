@@ -115,6 +115,18 @@
             class="btn btn-dark btn-lg btn-options button-side" style="background:rgb(0, 143, 29)">Extra Input 3</button>
 	</div>
 -->
+
+        <div class="d-flex justify-content-center">
+            <form action="php/addCommand.php" method="GET">
+                <div class="d-flex justify-content-center">
+                    <h4 class="main-test">Set Volume</h4>
+                </div>
+                <input pattern="[0-9]*" type="text" inputmode="numeric" class="form-control btn-options" name="specialVol" id="specialVol" min="0" max="100" >
+                <button id="submit" name="submit" type="submit" class="btn  btn-lg btn-options" style="background:rgb(171, 3, 140);color:white;">Set Volume</button>
+                
+            </form>
+        </div>
+
         <div class="d-flex justify-content-center">
             <button type="button" onclick="window.location.href = 'index.php';" 
             class="btn btn-lg btn-options" style="background:rgb(255, 186, 0);">Back</button>
