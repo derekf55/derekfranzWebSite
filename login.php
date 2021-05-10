@@ -1,5 +1,11 @@
 <!DOCTYPE html>
-
+<?php
+	if ($_SERVER['HTTPS'] != "on"){
+		$url = "https://".$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
+		header("Location: $url");
+		exit();
+	}
+?>
 <html lang="en" class="gr__getbootstrap_com"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
     <!-- Required meta tags -->
