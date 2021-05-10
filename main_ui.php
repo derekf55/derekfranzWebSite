@@ -32,7 +32,7 @@
   <div class="container-fluid main-view">
         
         <div class="d-flex justify-content-center">
-            <button type="button" onclick="window.location.href = 'MarioKartTrackPicker/index.php';" class="btn btn-primary btn-lg btn-options" >Mario Kart Track Picker</button>
+            <button type="button" onclick="window.location.href = 'mario.php';" class="btn btn-primary btn-lg btn-options" >Mario Kart Track Picker</button>
         </div>
         <div class="d-flex justify-content-center">
             <button type="button" onclick="window.location.href = 'LED.php';" class="btn  btn-lg btn-options" style="background:rgb(149, 50, 168); color:white;">LEDS</button>
