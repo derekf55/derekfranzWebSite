@@ -68,7 +68,14 @@
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button></div>';
-        }
+        } 
+        else if ($_GET['error'] == 'banned'){
+          echo '<div class="alert alert-warning alert-dismissible fade show " role="alert">
+          <strong>Error:</strong> Bro you got banned
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button></div>';
+      }
           
           }
         if (isset($_GET['password'])){

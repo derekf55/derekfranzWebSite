@@ -45,7 +45,8 @@
         </div>
 
 <?php
-        require "php/connect.php";
+        //require "php/connect.php";
+        require "php/header.php";
         $sql = "SELECT Name,State,Appliance FROM homeAutomation WHERE groupName = 'Living_Room';";
 	    $results = mysqli_query($conn,$sql);
 		while ($row = mysqli_fetch_assoc($results)){
