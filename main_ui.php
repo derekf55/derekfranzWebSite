@@ -11,7 +11,7 @@
     <link rel="icon" type="image/png" sizes="192x192" href="img/icon-192.png">
     <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon-180.png">
 
-    <title>Bed Room Control</title>
+    <title>Blue Haus</title>
     <style>
         
         .main-view{
@@ -31,34 +31,44 @@
   <body>
   <div class="container-fluid main-view">
         
+        <div class="d-flex justify-content-center">
+            <button type="button" onclick="window.location.href = 'MarioKartTrackPicker/index.php';" class="btn btn-primary btn-lg btn-options" >Mario Kart Track Picker</button>
+        </div>
+        <div class="d-flex justify-content-center">
+            <button type="button" onclick="window.location.href = 'LED.php';" class="btn  btn-lg btn-options" style="background:rgb(149, 50, 168); color:white;">LEDS</button>
+	</div>
+<div class="d-flex justify-content-center">
+            <button type="button" onclick="window.location.href = 'tvRemote.php';" class="btn btn-dark btn-lg btn-options">TV Remote</button>
+	</div>
+<div class="d-flex justify-content-center ">
+            <button type="button" onclick="window.location.href = 'php/addCommand.php?command=Donny';" class="btn btn-lg btn-options" style="background:rgb(201, 89, 32);color:white;">Generate Quote</button>
+        </div>
 
-  <?php
+<?php
         require "php/connect.php";
-        require "php/admin_header.php";
-        $sql = "SELECT Name,State,Appliance FROM homeAutomation WHERE groupName = 'Derek_Room';";
+        $sql = "SELECT Name,State,Appliance FROM homeAutomation WHERE groupName = 'Living_Room';";
 	    $results = mysqli_query($conn,$sql);
-	    while ($row = mysqli_fetch_assoc($results)){
-            $name = $row['Name'];
-            $state = $row['State'];
+		while ($row = mysqli_fetch_assoc($results)){
+			$name = $row['Name'];
+			$state = $row['State'];
             $appliance = $row['Appliance'];
-            if ($state == 0){
-                $state = 'on';
-            } else{
-                $state = 'off';
+			if ($state == 0){
+				$state = 'on';
+			} else{
+			    $state = 'off';
             }
             echo '<div class="d-flex justify-content-center ">';
             echo '<button type="button" onclick="window.location.href = \'php/toggle.php?appliance='.$appliance.'&changeState=True\';" 
-            class="btn btn-lg btn-options" style="background:rgb(255, 186, 0);">Turn '.$name.' '.$state.'</button>';
-            echo '</div>';
-        }
+		                class="btn btn-lg btn-options" style="background:rgb(255, 186, 0);">Turn '.$name.' '.$state.'</button>';
+	                echo '</div>';
+	            }
         ?>
+        </div>
 
-        <div class="d-flex justify-content-center">
-            <button type="button" onclick="window.location.href = 'index.php';" 
-            class="btn btn-lg btn-options" style="background:rgb(255, 186, 0);">Back</button>
-        </div>
-            
-        </div>
+    <?php
+        include 'php/footer.php';
+    ?>
+
   </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

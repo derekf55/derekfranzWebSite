@@ -29,56 +29,56 @@
     </style>
   </head>
   <body>
-  <div class="container-fluid main-view">
-  <!--
-        <div class="d-flex justify-content-center ">
-            <button type="button" onclick="window.location.href = 'php/addCommand.php?command=PCOn';" class="btn btn-primary btn-lg btn-options">Wake PC</button>
-        </div>
-        <div class="d-flex justify-content-center">
-            <button type="button" onclick="window.location.href = 'php/addCommand.php?command=WindowsOn';" class="btn btn-success btn-lg btn-options">Start Windows</button>
-        </div>
-        <div class="d-flex justify-content-center">
-            <button type="button" onclick="window.location.href = 'php/addCommand.php?command=WindowsOff';" class="btn btn-danger btn-lg btn-options">Shutdown Windows</button>
-        </div>    
-        <div class="d-flex justify-content-center">
-            <button type="button" onclick="window.location.href = 'php/addCommand.php?command=PCOff';" class="btn btn-info btn-lg btn-options">Shutdown PC</button>
-        </div>
-        -->
-        <div class="d-flex justify-content-center">
-            <button type="button" onclick="window.location.href = 'tvRemote.php';" class="btn btn-dark btn-lg btn-options">TV Remote</button>
-        </div>
-        <div class="d-flex justify-content-center">
-            <button type="button" onclick="window.location.href = 'mario.php';" class="btn  btn-lg btn-options" style="background:rgb(201, 89, 32);color:white;">Mario Kart Track Picker</button>
-        </div>
+
+  <?php
+  session_start();
+  include 'php/connect.php';
+        // THIS IS VERY INSECURE BUT BETTER THAN THE NO LOGIN
+        // IF this cookie is good
+        if (isset($_COOKIE['rememberme'])){
+          //echo '<h1> Cookie val is '.$_COOKIE['rememberme'].'<h1>';
+          if ($_COOKIE['rememberme'] != ' '){
+            //echo '<h1>We haere</h1>';
+          $sql = "SELECT UserType FROM userinfo WHERE userid = ?;";
+          $stmt = mysqli_stmt_init($conn);
+          if(!mysqli_stmt_prepare($stmt,$sql)){
+            echo 'cookie error deal with';
+            exit();
+          } else {
+            mysqli_stmt_bind_param($stmt,"s",$_COOKIE['rememberme']);
+            mysqli_stmt_execute($stmt);
+            $results = mysqli_stmt_get_result($stmt);
+            if ($row = mysqli_fetch_assoc($results)){
+              $_SESSION['userType'] = $row['UserType'];
+              $_SESSION['uid'] = $_COOKIE['rememberme'];
+            }
+          }
+        } else{
+          
+        }
+        } 
 
 
-
-        <div class="d-flex justify-content-center">
-            <button type="button" onclick="window.location.href = 'LED.php';" class="btn  btn-lg btn-options" style="background:rgb(149, 50, 168); color:white;">LED</button>
-        </div>
-        <div class="d-flex justify-content-center">
-            <button type="button" onclick="window.location.href = 'lights.php';" class="btn  btn-lg btn-options" style="background:rgb(255, 186, 0);">Living Room Lights</button>
-        </div>
-
-        <div class="d-flex justify-content-center">
-            <button type="button" onclick="window.location.href = 'bedRoom.php';" class="btn  btn-lg btn-options" style="background:rgb(189, 174, 9);">Bed Room Lights</button>
-        </div>
-
-        <div class="d-flex justify-content-center">
-            <button type="button" onclick="window.location.href = 'php/addCommand.php?command=Donny';" class="btn  btn-lg btn-options" style="background:rgb(133, 51, 45); color:white;">Generate Donny Quote</button>
-        </div>
-        <div class="d-flex justify-content-center">
-            <button type="button" onclick="window.location.href = 'homeManagement.php';" class="btn  btn-lg btn-options" style="background:rgb(20, 115, 128); color:white;">Home Management</button>
-        </div>
-        <div class="d-flex justify-content-center">
-            <button type="button" onclick="window.location.href = 'alarm.php';" class="btn btn-danger btn-lg btn-options" >Set Alarm</button>
-        </div>
-        <div class="d-flex justify-content-center">
-            <button type="button" onclick="window.location.href = 'alarmViewer.php';" class="btn  btn-lg btn-options" style="background:rgb(52, 191, 89); color:white;">View Alarms</button>
-        </div>
+      if(isset($_SESSION['uid'])){
+          if ($_SESSION['userType'] == "admin"){
+            header("Location: admin_ui.php");
+            exit();
+          } else {
+            header("Location: main_ui.php");
+            exit();
+          }
         
-        </div>
-  </div>
+      }
+      else{
+        //header("Location: login.php");        
+
+        require 'login.php';
+        exit();
+        
+      }
+    ?>
+
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
