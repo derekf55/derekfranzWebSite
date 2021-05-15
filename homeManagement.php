@@ -61,7 +61,11 @@
 
     ?>
 
-        
+        <div class="d-flex justify-content-center">
+            <button type="button" onclick="window.location.href = 'index.php';" 
+            class="btn btn-lg btn-options" style="background:rgb(255, 186, 0);">Back</button>
+        </div>
+
         </div>
   </div>
     <!-- Optional JavaScript -->
