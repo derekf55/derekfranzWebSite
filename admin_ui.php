@@ -27,6 +27,13 @@
             margin-bottom: 20px;
             width: 300px;
 
+        } 
+        .btn-dual{
+            margin-bottom:10px;
+            margin-bottom: 20px;
+            margin-left: 10px;
+            display:block;
+            width: 300px;
         }
     </style>
   </head>
@@ -75,7 +82,8 @@
             <button type="button" onclick="window.location.href = 'php/addCommand.php?command=Donny';" class="btn  btn-lg btn-options" style="background:rgb(133, 51, 45); color:white;">Generate Donny Quote</button>
         </div>
         <div class="d-flex justify-content-center">
-            <button type="button" onclick="window.location.href = 'homeManagement.php';" class="btn  btn-lg btn-options" style="background:rgb(20, 115, 128); color:white;">Home Management</button>
+            <button type="button" onclick="window.location.href = 'homeManagement.php';" class="btn  btn-lg btn-dual" style="background:rgb(20, 115, 128); color:white;">Home Management</button>
+            <button type="button" onclick="window.location.href = 'homeStats.php';" class="btn  btn-lg btn-dual" style="background:rgb(19, 60, 240); color:white;">Home Stats</button>
         </div>
 
         <div class="d-flex justify-content-center">

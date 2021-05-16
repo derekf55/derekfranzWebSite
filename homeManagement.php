@@ -29,12 +29,15 @@
         .he{
             text-align:center;
         }
+        .people_here{
+            text-align:left;
+        }
     </style>
   </head>
   <body>
-  <div class="container-fluid ">
-
-        <h1 class="he">People who are currently here</h1>
+  <div class="container-fluid he">
+  
+        <h1 class="">People who are currently here</h1>
   <?php
 
         require "php/connect.php";
@@ -54,13 +57,13 @@
         $results = mysqli_query($conn,$sql);
         #echo $results;
         while ($row = mysqli_fetch_assoc($results)){
-            echo '<h2 class="he">'.$row['Name'].'</h2>';
+            echo '<h2 class="">'.$row['Name'].'</h2>';
             
         }
 
 
     ?>
-
+    
         <div class="d-flex justify-content-center">
             <button type="button" onclick="window.location.href = 'index.php';" 
             class="btn btn-lg btn-options" style="background:rgb(255, 186, 0);">Back</button>
