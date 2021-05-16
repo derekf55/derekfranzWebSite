@@ -71,27 +71,25 @@
             <button type="button" onclick="window.location.href = 'LED.php';" class="btn  btn-lg btn-options" style="background:rgb(149, 50, 168); color:white;">LED</button>
         </div>
         <div class="d-flex justify-content-center">
-            <button type="button" onclick="window.location.href = 'lights.php';" class="btn  btn-lg btn-options" style="background:rgb(255, 186, 0);">Living Room Lights</button>
-        </div>
-
-        <div class="d-flex justify-content-center">
-            <button type="button" onclick="window.location.href = 'bedRoom.php';" class="btn  btn-lg btn-options" style="background:rgb(189, 174, 9);">Bed Room Lights</button>
-        </div>
-
-        <div class="d-flex justify-content-center">
             <button type="button" onclick="window.location.href = 'php/addCommand.php?command=Donny';" class="btn  btn-lg btn-options" style="background:rgb(133, 51, 45); color:white;">Generate Donny Quote</button>
         </div>
+        
+        <div class="d-flex justify-content-center">
+            <button type="button" onclick="window.location.href = 'lights.php';" class="btn  btn-lg btn-dual" style="background:rgb(255, 186, 0);">Living Room Lights</button>
+            <button type="button" onclick="window.location.href = 'bedRoom.php';" class="btn  btn-lg btn-dual" style="background:rgb(189, 174, 9);">Bed Room Lights</button>
+        </div>
+
+        
         <div class="d-flex justify-content-center">
             <button type="button" onclick="window.location.href = 'homeManagement.php';" class="btn  btn-lg btn-dual" style="background:rgb(20, 115, 128); color:white;">Home Management</button>
             <button type="button" onclick="window.location.href = 'homeStats.php';" class="btn  btn-lg btn-dual" style="background:rgb(19, 60, 240); color:white;">Home Stats</button>
         </div>
 
         <div class="d-flex justify-content-center">
-            <button type="button" onclick="window.location.href = 'alarm.php';" class="btn btn-danger btn-lg btn-options" >Set Alarm</button>
+            <button type="button" onclick="window.location.href = 'alarmViewer.php';" class="btn  btn-lg btn-dual" style="background:rgb(52, 191, 89); color:white;">View Alarms</button>
+            <button type="button" onclick="window.location.href = 'alarm.php';" class="btn btn-danger btn-lg btn-dual" >Set Alarm</button>
         </div>
-        <div class="d-flex justify-content-center">
-            <button type="button" onclick="window.location.href = 'alarmViewer.php';" class="btn  btn-lg btn-options" style="background:rgb(52, 191, 89); color:white;">View Alarms</button>
-        </div>
+        
 
         <?php
             include 'php/footer.php';
