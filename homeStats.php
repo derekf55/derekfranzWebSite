@@ -44,7 +44,7 @@
         require "php/connect.php";
         require "php/admin_header.php";
 
-        $sql = "SELECT Location, AVG(SensorReading) as SensorReading FROM SensorData WHERE Timestamp > (CURRENT_TIMESTAMP - INTERVAL 2 MINUTE) AND SensorType = 'Temperature_Sensor' group by Location having MAX(Timestamp)";
+        $sql = "SELECT Location, ROUND(AVG(SensorReading),2) as SensorReading FROM SensorData WHERE Timestamp > (CURRENT_TIMESTAMP - INTERVAL 3 MINUTE) AND SensorType = 'Temperature_Sensor' group by Location having MAX(Timestamp)";
 
         $results = mysqli_query($conn,$sql);
         while ($row = mysqli_fetch_assoc($results)){
