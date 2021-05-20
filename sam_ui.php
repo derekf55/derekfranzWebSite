@@ -52,13 +52,15 @@
             <button type="button" onclick="window.location.href = 'mario.php';" class="btn  btn-lg btn-options" style="background:rgb(201, 89, 32);color:white;">Mario Kart Track Picker</button>
         </div>
 
-
-
         <div class="d-flex justify-content-center">
             <button type="button" onclick="window.location.href = 'LED.php';" class="btn  btn-lg btn-options" style="background:rgb(149, 50, 168); color:white;">LED</button>
         </div>
         <div class="d-flex justify-content-center">
             <button type="button" onclick="window.location.href = 'php/addCommand.php?command=Donny';" class="btn  btn-lg btn-options" style="background:rgb(133, 51, 45); color:white;">Generate Donny Quote</button>
+        </div>
+
+        <div class="d-flex justify-content-center">
+            <button type="button" onclick="window.location.href = 'AC_Control.php';" class="btn  btn-lg btn-dual" style="background:rgb(19, 60, 240); color:white;">AC Control</button>
         </div>
         
         <div class="d-flex justify-content-center">

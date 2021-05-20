@@ -37,11 +37,15 @@
         <div class="d-flex justify-content-center">
             <button type="button" onclick="window.location.href = 'LED.php';" class="btn  btn-lg btn-options" style="background:rgb(149, 50, 168); color:white;">LEDS</button>
 	</div>
-<div class="d-flex justify-content-center">
+    <div class="d-flex justify-content-center">
             <button type="button" onclick="window.location.href = 'tvRemote.php';" class="btn btn-dark btn-lg btn-options">TV Remote</button>
 	</div>
-<div class="d-flex justify-content-center ">
+    <div class="d-flex justify-content-center ">
             <button type="button" onclick="window.location.href = 'php/addCommand.php?command=Donny';" class="btn btn-lg btn-options" style="background:rgb(201, 89, 32);color:white;">Generate Quote</button>
+        </div>
+
+    <div class="d-flex justify-content-center">
+            <button type="button" onclick="window.location.href = 'AC_Control.php';" class="btn  btn-lg btn-options" style="background:rgb(19, 60, 240); color:white;">AC Control</button>
         </div>
 
 <?php

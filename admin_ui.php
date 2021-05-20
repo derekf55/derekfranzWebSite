@@ -82,7 +82,7 @@
         
         <div class="d-flex justify-content-center">
             <button type="button" onclick="window.location.href = 'homeManagement.php';" class="btn  btn-lg btn-dual" style="background:rgb(20, 115, 128); color:white;">Home Management</button>
-            <button type="button" onclick="window.location.href = 'homeStats.php';" class="btn  btn-lg btn-dual" style="background:rgb(19, 60, 240); color:white;">Home Stats</button>
+            <button type="button" onclick="window.location.href = 'AC_Control.php';" class="btn  btn-lg btn-dual" style="background:rgb(19, 60, 240); color:white;">AC Control</button>
         </div>
 
         <div class="d-flex justify-content-center">

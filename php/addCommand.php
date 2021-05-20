@@ -6,7 +6,8 @@ if (isset($_GET['command'])){
     $forServer = array();
     // Commands that should be run by the pi
     $forPi = array("Donny","netflix","back","LEDpower","fade",'TVPower','Mute','VolumeUp','VolumeUp5','VolumeDown','VolumeDown5','Input','Select', 'TVup','TVdown','TVleft','TVright',
-    "ChannelUp","ChannelDown","ExtraInput1","ExtraInput2","ExtraInput3","Sleep","Donny");
+    "ChannelUp","ChannelDown","ExtraInput1","ExtraInput2","ExtraInput3","Sleep","Donny",
+    "AC_Power","AC_Fan_Faster","AC_FanSlow","AC_Temp_Down","AC_Temp_Up");
 
     // Add each of the buttons for the vibe lights
     $x = 1;
