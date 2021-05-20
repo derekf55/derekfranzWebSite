@@ -18,7 +18,7 @@ if (isset($_GET['appliance']) && isset($_GET['changeState'])) {
             }
             if ($currentState == "1"){
                 $newState = "0";
-            } else{
+            } else {
                 $newState = "1";
                 }
             
@@ -31,6 +31,7 @@ if (isset($_GET['appliance']) && isset($_GET['changeState'])) {
                 mysqli_stmt_bind_param($stmt,"ss",$newState,$appliance);
                 mysqli_stmt_execute($stmt);
                 echo $newState;
+                //echo 'wtf jesser';
                 header('Location: ' . $_SERVER['HTTP_REFERER']);
                 exit();
         }

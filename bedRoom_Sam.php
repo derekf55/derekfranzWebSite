@@ -35,8 +35,8 @@
   <?php
   // Lights 
         require "php/connect.php";
-        require "php/admin_header.php";
-        $sql = "SELECT Name,State,Appliance FROM homeAutomation WHERE groupName = 'Derek_Room' and Type = 'Light';";
+        require "php/sam_header.php";
+        $sql = "SELECT Name,State,Appliance FROM homeAutomation WHERE groupName = 'Sam_Room' and Type = 'Light';";
 	    $results = mysqli_query($conn,$sql);
 	    while ($row = mysqli_fetch_assoc($results)){
             $name = $row['Name'];
@@ -57,7 +57,7 @@
     <?php
     // Blinds
         require "php/connect.php";
-        $sql = "SELECT Name,State,Appliance FROM homeAutomation WHERE groupName = 'Derek_Room' and Type = 'Blinds';";
+        $sql = "SELECT Name,State,Appliance FROM homeAutomation WHERE groupName = 'Sam_Room' and Type = 'Blinds';";
 	    $results = mysqli_query($conn,$sql);
 	    while ($row = mysqli_fetch_assoc($results)){
             $name = $row['Name'];

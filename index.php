@@ -63,12 +63,18 @@
           if ($_SESSION['userType'] == "admin"){
             header("Location: admin_ui.php");
             exit();
-          } else if ($_SESSION['userType'] == "banned"){
+          } else if ($_SESSION['userType'] == "Sam"){
+            //echo 'SAM';
+            header("Location: sam_ui.php");
+            exit();
+          }
+           else if ($_SESSION['userType'] == "banned"){
             //echo 'you banned';
             header("Location: login.php?error=banned");
             exit();
           }
            else {
+            echo $_SESSION['userType'];
             header("Location: main_ui.php");
             exit();
           }
