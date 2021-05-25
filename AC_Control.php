@@ -62,7 +62,13 @@
     <div class="container-fluid he">
     <?php
         require "php/connect.php";
-        $sql = "SELECT Location, ROUND(AVG(SensorReading),2) as SensorReading FROM SensorData WHERE Timestamp > (CURRENT_TIMESTAMP - INTERVAL 3 MINUTE) AND SensorType = 'Temperature_Sensor' group by Location having MAX(Timestamp)";
+        $sql = "SELECT SensorInfo.Location, ROUND(AVG(SensorReading),2) as SensorReading 
+        FROM SensorData 
+        JOIN SensorInfo 
+        on SensorInfo.SensorName = SensorData.SensorName
+        WHERE Timestamp > (CURRENT_TIMESTAMP - INTERVAL 3 MINUTE)
+        GROUP BY Location
+        HAVING max(Timestamp)";
 
         $results = mysqli_query($conn,$sql);
         if (mysqli_num_rows($results) == 0){
