@@ -11,7 +11,7 @@
     <link rel="icon" type="image/png" sizes="192x192" href="img/tv/icon-192.png">
     <link rel="apple-touch-icon" sizes="180x180" href="img/tv/apple-touch-icon-180.png">
 
-    <title>AC Control</title>
+    <title>Server Status</title>
     <style>
         
         .main-view{
@@ -56,12 +56,32 @@
   <body>
 
     <?php
-        include 'php/admin_header.php';
+        require 'php/admin_header.php';
     ?>
     
     <div class="container-fluid he">
-        <h1>Control server stuff like disabling notifications for presense detection</h1>
-        <h2>Stats for which servers and if the desktop is running</h2>
+        <h1>Server Status</h1>
+    </div>
+    <div class="container-fluid he">
+        <?php
+            require 'php/connect.php';
+            $sql = "SELECT Name, Status, max(Timestamp) 
+            FROM `ServiceStatus` 
+            WHERE Timestamp > (CURRENT_TIMESTAMP - INTERVAL 2 MINUTE) 
+            GROUP by Name
+            HAVING MAX(Timestamp)
+            ORDER by Status Desc, Name 
+            ";
+            $results = mysqli_query($conn,$sql);
+            if (mysqli_num_rows($results) == 0){
+                echo '<h2 class="">Either something is broken or everything is busted who can say</h2>';
+            }
+            while ($row = mysqli_fetch_assoc($results)){
+                echo '<h2 class="">'.$row['Name'].' : '.$row['Status']. '</h2>';   
+            }
+
+        ?>
+        
     </div>
         
   

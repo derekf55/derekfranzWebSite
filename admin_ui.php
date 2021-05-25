@@ -90,7 +90,7 @@
             <button type="button" onclick="window.location.href = 'alarm.php';" class="btn btn-danger btn-lg btn-dual" >Set Alarm</button>
         </div>
         <div class="d-flex justify-content-center">
-            <button type="button" onclick="window.location.href = 'server_functions.php';" class="btn  btn-lg btn-dual" style="background:rgb(52, 191, 89); color:white;">Server Functions</button>
+            <button type="button" onclick="window.location.href = 'server_functions.php';" class="btn  btn-lg btn-dual" style="background:rgb(63, 141, 153); color:white;">Server Functions</button>
         </div>
         
 
