@@ -56,55 +56,24 @@
   <body>
 
     <?php
-        require 'php/header.php';
+        include 'php/admin_header.php';
     ?>
     
     <div class="container-fluid he">
-    <?php
-        require "php/connect.php";
-        $sql = "SELECT Location, ROUND(AVG(SensorReading),2) as SensorReading FROM SensorData WHERE Timestamp > (CURRENT_TIMESTAMP - INTERVAL 3 MINUTE) AND SensorType = 'Temperature_Sensor' group by Location having MAX(Timestamp)";
-
-        $results = mysqli_query($conn,$sql);
-        if (mysqli_num_rows($results) == 0){
-            echo '<h2 class="">There was a problem getting the temperature</h2>';
-        }
-        while ($row = mysqli_fetch_assoc($results)){
-            echo '<h2 class="">'.$row['Location'].' '.$row['SensorReading'].' °F</h2>';   
-        }
-    ?>
+        <h1>Control server stuff like disabling notifications for presense detection</h1>
+        <h2>Stats for which servers and if the desktop is running</h2>
     </div>
-
-  <div class="container-fluid main-view">
-        <div class="d-flex justify-content-center ">
-            <button type="button" onclick="window.location.href = 'php/addCommand.php?command=AC_Power';" 
-            class="btn btn-primary btn-lg btn-options">AC ON/OFF</button>
-        </div>
-             
-
         
-
-        <div class="d-flex justify-content-center">
-            <button type="button" onclick="window.location.href = 'php/addCommand.php?command=AC_Fan_Faster';" 
-            class="btn btn-dark btn-lg button-vol button-side">Fan Down</button>
-            <button type="button" onclick="window.location.href = 'php/addCommand.php?command=AC_FanSlow';" 
-            class="btn btn-info btn-lg button-vol button-side">Fan Up</button>
-        </div>
-        
-        <div class="d-flex justify-content-center">
-            <button type="button" onclick="window.location.href = 'php/addCommand.php?command=AC_Temp_Down';" 
-            class="btn btn-dark btn-lg button-vol button-side">Temp Down</button>
-            <button type="button" onclick="window.location.href = 'php/addCommand.php?command=AC_Temp_Up';" 
-            class="btn btn-info btn-lg button-vol button-side">Temp Up</button>
-        </div>
+  
         
  
-
-        
-
-        <div class="d-flex justify-content-center">
+    <div class="d-flex justify-content-center">
             <button type="button" onclick="window.location.href = 'index.php';" 
             class="btn btn-lg btn-options" style="background:rgb(255, 186, 0);">Back</button>
         </div>
+        
+
+    
   </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
