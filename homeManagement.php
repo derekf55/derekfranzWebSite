@@ -37,19 +37,19 @@
   <body>
   <div class="container-fluid he">
   
-        <h1 class="">People who are currently here</h1>
+        
+  
   <?php
-
         require "php/connect.php";
-        require "php/admin_header.php";
-        #$sql = 'SELECT macToName.Name, WifiInfo.last_seen 
-        #FROM `WifiInfo` JOIN macToName ON macToName.MacAddress = WifiInfo.MacAddress 
-        #WHERE WifiInfo.last_seen > CURRENT_TIMESTAMP - INTERVAL 5 MINUTE 
-        #AND WifiInfo.Relevant = 1
-        #GROUP by Name
-        #HAVING MAX(WifiInfo.last_seen)
-        #';
+        require "php/admin_header.php";    
 
+        $sql = "SELECT PriorityLevel FROM `personDetectionPriority`";
+        $results = mysqli_query($conn,$sql);
+        while ($row = mysqli_fetch_assoc($results)){
+            echo '<h1 class="">Priority Level : '.$row['PriorityLevel'].'</h1>';
+        
+        }
+        echo '<h2 class="">People who are currently here</h2>';
         $filePath = 'php/peopleHere.sql';
         $fileReader = fopen($filePath, "r") or die ("Unable to open SQL");
         $sql = fread($fileReader,filesize($filePath));

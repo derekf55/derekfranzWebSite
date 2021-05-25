@@ -121,16 +121,6 @@
 	</div>
 -->
 
-        <div class="d-flex justify-content-center">
-            <form action="php/addCommand.php" method="GET">
-                <div class="d-flex justify-content-center">
-                    <h4 class="main-test">Set Volume</h4>
-                </div>
-                <input pattern="[0-9]*" type="text" inputmode="numeric" class="form-control btn-options" name="specialVol" id="specialVol" min="0" max="100" >
-                <button id="submit" name="submit" type="submit" class="btn  btn-lg btn-options" style="background:rgb(171, 3, 140);color:white;">Set Volume</button>
-                
-            </form>
-        </div>
 
         <div class="d-flex justify-content-center">
             <button type="button" onclick="window.location.href = 'index.php';" 

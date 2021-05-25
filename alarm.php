@@ -11,7 +11,7 @@
     <link rel="icon" type="image/png" sizes="192x192" href="img/icon-192.png">
     <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon-180.png">
 
-    <title>Bed Room Control</title>
+    <title>Set Alarm</title>
     <style>
         
         .main-view{

@@ -75,6 +75,9 @@
             echo '<h2 class="">There was a problem getting the temperature</h2>';
         }
         while ($row = mysqli_fetch_assoc($results)){
+            if ($row['Location'] == "Derek's Room" && $_SESSION['userType'] != "admin"){
+                continue;
+            }
             echo '<h2 class="">'.$row['Location'].' '.$row['SensorReading'].' °F</h2>';   
         }
     ?>
@@ -85,10 +88,7 @@
             <button type="button" onclick="window.location.href = 'php/addCommand.php?command=AC_Power';" 
             class="btn btn-primary btn-lg btn-options">AC ON/OFF</button>
         </div>
-             
-
         
-
         <div class="d-flex justify-content-center">
             <button type="button" onclick="window.location.href = 'php/addCommand.php?command=AC_Fan_Faster';" 
             class="btn btn-dark btn-lg button-vol button-side">Fan Down</button>
