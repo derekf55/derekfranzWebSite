@@ -10,6 +10,7 @@
     <link rel="apple-touch-icon" sizes="120x120" href="img/apple-touch-icon-120.png">
     <link rel="icon" type="image/png" sizes="192x192" href="img/icon-192.png">
     <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon-180.png">
+    <link rel="stylesheet" href="css/custom_styles.css">
 
     <title>Home Management</title>
     <style>
@@ -43,13 +44,12 @@
         require "php/connect.php";
         require "php/admin_header.php";    
 
-        $sql = "SELECT PriorityLevel FROM `personDetectionPriority`";
+        $sql = "SELECT PriorityLevel FROM `personDetectionPriority` WHERE ID = 1";
         $results = mysqli_query($conn,$sql);
         while ($row = mysqli_fetch_assoc($results)){
             echo '<h1 class="">Priority Level : '.$row['PriorityLevel'].'</h1>';
         
         }
-        echo '<h2 class="">People who are currently here</h2>';
         $filePath = 'php/peopleHere.sql';
         $fileReader = fopen($filePath, "r") or die ("Unable to open SQL");
         $sql = fread($fileReader,filesize($filePath));
@@ -60,10 +60,39 @@
             echo '<h2 class="">'.$row['Name'].'</h2>';
             
         }
+        mysqli_close($conn);
 
 
     ?>
     
+    <div class="container-fluid ">
+    <form action="php/set_priority.php" method="POST"> 
+        <div class="d-flex justify-content-center ">
+                <h2>Set Priority Level</h2>
+        </div>
+        <div class="d-flex justify-content-center he btn-options selection_options">
+            <select class=" custom-select selector " id="priority" name="priority">
+                <?php
+                    require "php/connect.php";
+                    $sql = "SELECT PriorityLevel FROM `personDetectionPriority` WHERE ID != 1";
+                    $results = mysqli_query($conn,$sql);
+                    while ($row = mysqli_fetch_assoc($results)){
+                        $PriorityLevel = $row['PriorityLevel'];
+                        echo '<option name="priority" value="'.$PriorityLevel.'">'.$PriorityLevel.'</option>';
+                    
+                    }
+
+                ?>
+            </select>
+        </div>  
+
+        <div class="d-flex justify-content-center">
+            <button id="submit" name="submit" type="submit" class="btn btn-primary btn-lg btn-options">Submit</button>
+        </div>
+
+    </form> 
+    </div>
+
         <div class="d-flex justify-content-center">
             <button type="button" onclick="window.location.href = 'index.php';" 
             class="btn btn-lg btn-options" style="background:rgb(255, 186, 0);">Back</button>

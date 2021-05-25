@@ -12,46 +12,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="img/tv/apple-touch-icon-180.png">
 
     <title>Server Status</title>
-    <style>
-        
-        .main-view{
-            margin-top:30px;
-        }
-        .main-test{
-            align:center;
-        }
-        .btn-options{
-            display:block;
-            margin-bottom: 20px;
-            width: 300px;
-        }
-        .button-side{
-            margin-right:10px;
-            margin-left:10px;
-        }
-        .button-select{
-            margin-bottom:10px;
-            margin-bottom: 20px;
-            display:block;
-            width: 150px;
-        }
-        .button-volMany{
-            margin-bottom:10px;
-            margin-bottom: 20px;
-            display:block;
-            width: 150px;
-        }
-        .button-vol{
-            margin-bottom:10px;
-            margin-bottom: 20px;
-            display:block;
-            width: 200px;
-        }
-        .he{
-            text-align:center;
-        }
-
-    </style>
+    <link rel="stylesheet" href="css/custom_styles.css">
   </head>
   <body>
 
@@ -59,10 +20,10 @@
         require 'php/admin_header.php';
     ?>
     
-    <div class="container-fluid he">
+    <div class="container-fluid top-view">
         <h1>Server Status</h1>
     </div>
-    <div class="container-fluid he">
+    <div class="container-fluid main-view">
         <?php
             require 'php/connect.php';
             $sql = "SELECT Name, Status, max(Timestamp) 
@@ -83,10 +44,7 @@
         ?>
         
     </div>
-        
-  
-        
- 
+    
     <div class="d-flex justify-content-center">
             <button type="button" onclick="window.location.href = 'index.php';" 
             class="btn btn-lg btn-options" style="background:rgb(255, 186, 0);">Back</button>
