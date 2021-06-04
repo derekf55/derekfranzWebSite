@@ -9,6 +9,8 @@ if (isset($_GET['command'])){
     "ChannelUp","ChannelDown","ExtraInput1","ExtraInput2","ExtraInput3","Sleep","Donny",
     "AC_Power","AC_Fan_Faster","AC_FanSlow","AC_Temp_Down","AC_Temp_Up");
 
+    $forPi2 = array('Derek_AC_Power');
+
     // Add each of the buttons for the vibe lights
     $x = 1;
     while ($x < 6){
@@ -24,8 +26,6 @@ if (isset($_GET['command'])){
         $x = 6;
         $command = substr($command,0,-1);
     }
-
-    
 
     do {
 
@@ -60,7 +60,22 @@ if (isset($_GET['command'])){
             }
 
         // If the command is not accepted 
-        } else{
+        } else if (in_array($command, $forPi2)){
+            $sql = 'INSERT INTO ProcessToRun (Command,Server) VALUES(?,"Pi2");';
+            $stmt = mysqli_stmt_init($conn);
+            
+            if (!mysqli_stmt_prepare($stmt,$sql)){
+                echo "Failed to execute SQL";
+                exit();
+            
+            } else{
+                mysqli_stmt_bind_param($stmt,"s",$command);
+                mysqli_stmt_execute($stmt);
+                header('Location: ' . $_SERVER['HTTP_REFERER']);
+            }
+        } 
+        
+        else{
             echo 'Not a valid command';
             exit();
         }

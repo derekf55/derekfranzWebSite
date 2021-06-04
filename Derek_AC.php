@@ -67,7 +67,7 @@
             class="btn btn-info btn-lg btn-triple">Fan High</button>
         </div>
         
-        <form action="php/set_Derek_AC.php" method="POST">
+        <!-- <form action="php/set_Derek_AC.php" method="POST">
         <div class="d-flex justify-content-center">
                 <input class="form-control " name="temp" id="temp" type="num">
         </div>
@@ -75,7 +75,7 @@
         <div class="d-flex justify-content-center">
             <button id="submit" name="submit" type="submit" class="btn btn-primary btn-lg btn-options">Submit</button>
 
-        </div>
+        </div> -->
 
 
         </form>
