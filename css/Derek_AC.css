@@ -1,0 +1,22 @@
+.btn-dual{
+    margin-bottom:10px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    display:block;
+    width: 300px;
+}
+.btn-triple{
+    margin-bottom:10px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    display:block;
+    width: 200px;
+}
+.main-view{
+    text-align:center;
+}
+.btn-options{
+    display:block;
+    margin-bottom: 20px;
+    width: 300px;
+}

@@ -61,18 +61,22 @@
         <div class="d-flex justify-content-center">
             <button type="button" onclick="window.location.href = 'tvRemote.php';" class="btn btn-dark btn-lg btn-options">TV Remote</button>
         </div>
-        <div class="d-flex justify-content-center">
-            <button type="button" onclick="window.location.href = 'mario.php';" class="btn  btn-lg btn-options" style="background:rgb(201, 89, 32);color:white;">Mario Kart Track Picker</button>
-        </div>
-
-
 
         <div class="d-flex justify-content-center">
             <button type="button" onclick="window.location.href = 'LED.php';" class="btn  btn-lg btn-options" style="background:rgb(149, 50, 168); color:white;">LED</button>
         </div>
+
         <div class="d-flex justify-content-center">
-            <button type="button" onclick="window.location.href = 'php/addCommand.php?command=Donny';" class="btn  btn-lg btn-options" style="background:rgb(133, 51, 45); color:white;">Generate Donny Quote</button>
+            <button type="button" onclick="window.location.href = 'homeManagement.php';" class="btn  btn-lg btn-dual" style="background:rgb(20, 115, 128); color:white;">Home Management</button>
         </div>
+        <div class="d-flex justify-content-center">
+            <button type="button" onclick="window.location.href = 'mario.php';" class="btn  btn-lg btn-dual" style="background:rgb(201, 89, 32);color:white;">Mario Kart Track Picker</button>
+            <button type="button" onclick="window.location.href = 'php/addCommand.php?command=Donny';" class="btn  btn-lg btn-dual" style="background:rgb(133, 51, 45); color:white;">Generate Donny Quote</button>
+        </div>
+
+
+
+        
         
         <div class="d-flex justify-content-center">
             <button type="button" onclick="window.location.href = 'lights.php';" class="btn  btn-lg btn-dual" style="background:rgb(255, 186, 0);">Living Room Lights</button>
@@ -81,7 +85,7 @@
 
         
         <div class="d-flex justify-content-center">
-            <button type="button" onclick="window.location.href = 'homeManagement.php';" class="btn  btn-lg btn-dual" style="background:rgb(20, 115, 128); color:white;">Home Management</button>
+        <button type="button" onclick="window.location.href = 'Derek_AC.php';" class="btn  btn-lg btn-dual" style="background:rgb(45, 90, 133); color:white;">Derek AC Control</button>
             <button type="button" onclick="window.location.href = 'AC_Control.php';" class="btn  btn-lg btn-dual" style="background:rgb(19, 60, 240); color:white;">AC Control</button>
         </div>
 
