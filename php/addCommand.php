@@ -9,7 +9,7 @@ if (isset($_GET['command'])){
     "ChannelUp","ChannelDown","ExtraInput1","ExtraInput2","ExtraInput3","Sleep","Donny",
     "AC_Power","AC_Fan_Faster","AC_FanSlow","AC_Temp_Down","AC_Temp_Up");
 
-    $forPi2 = array('Derek_AC_Power');
+    $forPi2 = array('Derek_AC_Power','Derek_AC_Temp_Up','Derek_AC_Temp_Down','Derek_AC_Fan_Low','Derek_AC_Fan_Medium','Derek_AC_Fan_High');
 
     // Add each of the buttons for the vibe lights
     $x = 1;
