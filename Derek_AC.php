@@ -13,6 +13,15 @@
     <link rel="stylesheet" href="css/Derek_AC.css">
 
     <title>Derek AC Control</title>
+    <style>
+        .tempInput{
+            width: 300px;
+            margin-bottom: 20px;
+        }
+        .disableClimate{
+            margin-left: 10px;
+        }
+    </style>
     
   </head>
   <body>
@@ -47,8 +56,36 @@
 
   <div class="container-fluid main-view">
         <div class="d-flex justify-content-center ">
-            <button type="button" onclick="window.location.href = 'php/addCommand.php?command=Derek_AC_Power';" 
-            class="btn btn-primary btn-lg btn-options">AC ON/OFF</button>
+            <?php
+                $sql = "SELECT State FROM homeAutomation WHERE Appliance = 'Derek_AC';";
+                $results = mysqli_query($conn,$sql);
+                while ($row = mysqli_fetch_assoc($results)){
+                    if ($row['State'] == 1){
+                        $state = 'OFF';
+                    } else{
+                        $state = 'ON';
+                    }
+                    echo '<button type="button" onclick="window.location.href = `php/addCommand.php?command=Derek_AC_Power`;" 
+                    class="btn btn-primary btn-lg btn-dual">AC '.$state.'</button>';
+                }
+                    $sql = "SELECT State FROM homeAutomation WHERE Appliance = 'Derek_Room_Temp';";
+                    $results = mysqli_query($conn,$sql);
+                    while ($row = mysqli_fetch_assoc($results)){
+                        $t = $row['State'];
+                        if ($t != -1){
+                            echo '<button type="button" onclick="window.location.href = `php/addCommand.php?command=disableClimate`;" 
+                            class="btn btn-secondary btn-lg btn-dual">Disable climate control</button>';
+                        } 
+
+                    }
+
+
+
+            ?>
+
+
+            <!-- <button type="button" onclick="window.location.href = 'php/addCommand.php?command=Derek_AC_Power';" 
+            class="btn btn-primary btn-lg btn-options">AC ON/OFF</button> -->
         </div>
         
         <div class="d-flex justify-content-center ">
@@ -67,15 +104,33 @@
             class="btn btn-info btn-lg btn-triple">Fan High</button>
         </div>
         
-        <!-- <form action="php/set_Derek_AC.php" method="POST">
-        <div class="d-flex justify-content-center">
-                <input class="form-control " name="temp" id="temp" type="num">
-        </div>
+        
 
-        <div class="d-flex justify-content-center">
-            <button id="submit" name="submit" type="submit" class="btn btn-primary btn-lg btn-options">Submit</button>
+        <form action="php/set_Derek_AC.php" method="POST">
+            <div class="d-flex justify-content-center ">
+                <h2>Set Climate Control</h2>
+            </div>
+            <div class="d-flex justify-content-center ">
+                    <?php
+                        $sql = "SELECT State FROM homeAutomation WHERE Appliance = 'Derek_Room_Temp';";
+                        $results = mysqli_query($conn,$sql);
+                        while ($row = mysqli_fetch_assoc($results)){
+                            $t = $row['State'];
+                            if ($t == -1){
+                                echo '<input class="form-control  tempInput" name="temp" id="temp" type="number">';
+                            } else{
+                                echo '<input class="form-control  tempInput" name="temp" id="temp" type="number" value="'.$t.'">';
+                            }
+                            
+                        }
+                    ?>
+                    
+            </div>
 
-        </div> -->
+            <div class="d-flex justify-content-center">
+                <button id="submit" name="submit" type="submit" class="btn btn-primary btn-lg btn-options">Set</button>
+
+            </div>
 
 
         </form>

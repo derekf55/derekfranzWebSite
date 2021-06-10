@@ -27,6 +27,34 @@ if (isset($_GET['command'])){
         $command = substr($command,0,-1);
     }
 
+    if ($command == 'Derek_AC_Power'){
+        $sql = "SELECT State FROM homeAutomation WHERE Appliance = 'Derek_AC';";
+        $results = mysqli_query($conn,$sql);
+        while ($row = mysqli_fetch_assoc($results)){
+            if ($row['State'] == 1){
+                $state = 0;
+            } else{
+                $state = 1;
+            }
+        }
+        $sql = "UPDATE homeAutomation set State = ? WHERE Appliance = 'Derek_AC';";
+        $stmt = mysqli_stmt_init($conn);
+        if (!mysqli_stmt_prepare($stmt,$sql)){
+            echo "Something went wrong here";
+            exit();
+        }
+        else{
+            mysqli_stmt_bind_param($stmt,"s",$state);
+            mysqli_stmt_execute($stmt);
+        }
+    }
+
+
+    if ($command == 'disableClimate'){
+        $sql = "UPDATE homeAutomation set State = -1 WHERE Appliance = 'Derek_Room_Temp'; ";
+        mysqli_query($conn,$sql);
+    }
+
     do {
 
         // If the command is meant for the pi
@@ -76,7 +104,7 @@ if (isset($_GET['command'])){
         } 
         
         else{
-            echo 'Not a valid command';
+            header('Location: ' . $_SERVER['HTTP_REFERER']);
             exit();
         }
         $x--;
