@@ -117,9 +117,9 @@
                         while ($row = mysqli_fetch_assoc($results)){
                             $t = $row['State'];
                             if ($t == -1){
-                                echo '<input class="form-control  tempInput" name="temp" id="temp" type="number">';
+                                echo '<input class="form-control  tempInput" name="temp" id="temp" pattern="[0-9]*" type="text">';
                             } else{
-                                echo '<input class="form-control  tempInput" name="temp" id="temp" type="number" value="'.$t.'">';
+                                echo '<input class="form-control  tempInput" name="temp" id="temp" pattern="[0-9]*" type="text" value="'.$t.'">';
                             }
                             
                         }
