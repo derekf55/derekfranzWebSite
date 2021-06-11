@@ -11,8 +11,8 @@
     $room = $_POST['Room'];
     $alarm = mysqli_real_escape_string($conn,$_POST['alarm']);
     $alarm = strip_tags($alarm);
-    $room = mysqli_real_escape_string($conn, $room);
-    $room = strip_tags($room);
+    //$room = mysqli_real_escape_string($conn, $room);
+    //$room = strip_tags($room);
     
     if ($room == "Choose..."){
         $room = $DEFAULT_ROOM;
