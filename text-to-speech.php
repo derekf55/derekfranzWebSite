@@ -11,7 +11,7 @@
     <link rel="icon" type="image/png" sizes="192x192" href="img/icon-192.png">
     <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon-180.png">
 
-    <title>Set Alarm</title>
+    <title>Bed Room Control</title>
     <style>
         
         .main-view{
@@ -24,46 +24,24 @@
             display:block;
             margin-bottom: 20px;
             width: 300px;
-        }
-        .time-input{
-            width: 300px;
-            margin-bottom: 20px;
-        }
-        .my-header{
-          margin-bottom: 20px;
-        }
 
+        }
+        .ttsInput{
+            width: 300px;
+            margin-bottom: 10px;
         }
     </style>
   </head>
   <body>
   <div class="container-fluid main-view">
-        <form action="php/set_alarm.php" method="POST">
-          <div class="d-flex justify-content-center">
-            <h2 class="my-header">Set an alarm to flicker the lights<h2>
+        
+        <form action="php/send_text.php" method="POST">
+        <div class="d-flex justify-content-center">
+            <h2 class="my-header">Type the text you'd like to be spoken<h2>
           </div>
 
-        <div class="d-flex justify-content-center">
-                <input class="form-control timepicker time-input" name="alarm" id="alarm" type="time">
-        </div>
-
-        <div class="d-flex justify-content-center">
-        <div class="input-group mb-3 time-input">
-          <select class="custom-select selector" id="Room" name="Room">
-
-            <?php
-                require "php/connect.php";
-                $sql = "SELECT DISTINCT groupName FROM homeAutomation WHERE groupName != 'Remotes' order by groupName ;";
-                $results = mysqli_query($conn,$sql);
-                while ($row = mysqli_fetch_assoc($results)){
-                    echo $row['groupName'];
-                    $groupName = $row['groupName'];
-                    echo '<option name="Room" value="'.$groupName.'">'.$groupName.'</option>';
-                
-                }
-                ?>
-        </select>
-        </div>
+          <div class="d-flex justify-content-center">
+                <input class="form-control ttsInput" name="tts" id="tts" type="text" autocomplete="off">
         </div>
 
         <div class="d-flex justify-content-center">
@@ -71,13 +49,16 @@
 
         </div>
 
+        </form>
+
+
+
         <div class="d-flex justify-content-center">
             <button type="button" onclick="window.location.href = 'index.php';" 
             class="btn btn-lg btn-options" style="background:rgb(255, 186, 0);">Back</button>
         </div>
             
         </div>
-        </form>
   </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
