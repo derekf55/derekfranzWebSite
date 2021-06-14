@@ -33,6 +33,8 @@ if (isset($_GET['command'])){
         while ($row = mysqli_fetch_assoc($results)){
             if ($row['State'] == 1){
                 $state = 0;
+                $sql = "UPDATE homeAutomation SET State = -1 WHERE Appliance = 'Derek_Room_Temp';";
+                mysqli_query($conn,$sql);
             } else{
                 $state = 1;
             }
