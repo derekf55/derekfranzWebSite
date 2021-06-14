@@ -89,10 +89,10 @@
         </div>
         
         <div class="d-flex justify-content-center ">
-            <button type="button" onclick="window.location.href = 'php/addCommand.php?command=Derek_AC_Temp_Up';" 
-            class="btn btn-dark btn-lg btn-dual">Temp Up</button>
             <button type="button" onclick="window.location.href = 'php/addCommand.php?command=Derek_AC_Temp_Down';" 
-            class="btn btn-info btn-lg btn-dual">Temp Down</button>
+            class="btn btn-dark btn-lg btn-dual">Temp Down</button>
+            <button type="button" onclick="window.location.href = 'php/addCommand.php?command=Derek_AC_Temp_Up';" 
+            class="btn btn-info btn-lg btn-dual">Temp Up</button>
         </div>
 
         <div class="d-flex justify-content-center ">
@@ -101,7 +101,7 @@
             <button type="button" onclick="window.location.href = 'php/addCommand.php?command=Derek_AC_Fan_Medium';" 
             class="btn btn-info btn-lg btn-triple">Fan Medium</button>
             <button type="button" onclick="window.location.href = 'php/addCommand.php?command=Derek_AC_Fan_High';" 
-            class="btn btn-info btn-lg btn-triple">Fan High</button>
+            class="btn btn-success btn-lg btn-triple">Fan High</button>
         </div>
         
         
