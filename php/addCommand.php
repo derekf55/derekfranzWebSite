@@ -31,10 +31,10 @@ if (isset($_GET['command'])){
         $sql = "SELECT State FROM homeAutomation WHERE Appliance = 'Derek_AC';";
         $results = mysqli_query($conn,$sql);
         while ($row = mysqli_fetch_assoc($results)){
+            $sql = "UPDATE homeAutomation SET State = -1 WHERE Appliance = 'Derek_Room_Temp';";
+            mysqli_query($conn,$sql);
             if ($row['State'] == 1){
                 $state = 0;
-                $sql = "UPDATE homeAutomation SET State = -1 WHERE Appliance = 'Derek_Room_Temp';";
-                mysqli_query($conn,$sql);
             } else{
                 $state = 1;
             }
