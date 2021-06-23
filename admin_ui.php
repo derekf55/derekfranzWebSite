@@ -43,7 +43,7 @@
         <?php 
             include 'php/admin_header.php';
         ?>
-
+        
   <!--
         <div class="d-flex justify-content-center ">
             <button type="button" onclick="window.location.href = 'php/addCommand.php?command=PCOn';" class="btn btn-primary btn-lg btn-options">Wake PC</button>
@@ -96,6 +96,11 @@
         <div class="d-flex justify-content-center">
             <button type="button" onclick="window.location.href = 'server_functions.php';" class="btn  btn-lg btn-dual" style="background:rgb(63, 141, 153); color:white;">Server Functions</button>
             <button type="button" onclick="window.location.href = 'text-to-speech.php';" class="btn  btn-lg btn-dual" style="background:rgb(50, 168, 82); color:white;">Text To Speech</button>
+        </div>
+
+        <div class="d-flex justify-content-center">
+            <button type="button" onclick="window.location.href = 'PartyCounter.php';" class="btn  btn-lg btn-dual" style="background:rgb(63, 141, 153); color:white;">Party Counter</button>
+            
         </div>
         
 
