@@ -43,6 +43,9 @@
                 right join PartyLog
                 on PartyLog.MacAddress = WifiInfo.MacAddress
                 
+                join knownpeople
+                on knownpeople.macAdd = PartyLog.MacAddress
+                
                 WHERE WifiInfo.Relevant = 1";
                 $results = mysqli_query($conn,$sql);
                 while ($row = mysqli_fetch_assoc($results)){
