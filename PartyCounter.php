@@ -43,7 +43,7 @@
                 right join PartyLog
                 on PartyLog.MacAddress = WifiInfo.MacAddress
                 
-                join knownpeople
+                left join knownpeople
                 on knownpeople.macAdd = PartyLog.MacAddress
                 
                 WHERE WifiInfo.Relevant = 1";
