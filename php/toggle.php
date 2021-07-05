@@ -4,7 +4,7 @@ require 'connect.php';
 if (isset($_GET['appliance']) && isset($_GET['changeState'])) {
     if ($_GET['changeState'] == "True"){
         $appliance = $_GET['appliance'];
-        $sql = 'SELECT State FROM `homeAutomation` WHERE Appliance=?;';
+        $sql = "SELECT State FROM `homeAutomation` WHERE Appliance=? and Type='Light';";
         $stmt = mysqli_stmt_init($conn);
         if (!mysqli_stmt_prepare($stmt,$sql)){
             echo "sql error";
@@ -22,7 +22,7 @@ if (isset($_GET['appliance']) && isset($_GET['changeState'])) {
                 $newState = "1";
                 }
             
-            $sql = 'UPDATE homeAutomation SET State=? WHERE Appliance=?';
+            $sql = "UPDATE homeAutomation SET State=? WHERE Appliance=? and Type='Light'";
             $stmt = mysqli_stmt_init($conn);
             if (!mysqli_stmt_prepare($stmt,$sql)){
                 echo "SQL error";
@@ -45,7 +45,7 @@ if (isset($_GET['appliance']) && isset($_GET['setstate'])) {
 	$newState = "0";
 	} 
         $appliance = $_GET['appliance'];
-        $sql = 'SELECT State FROM `homeAutomation` WHERE Appliance=?;';
+        $sql = "SELECT State FROM `homeAutomation` WHERE Appliance=? and Type='Light';";
         $stmt = mysqli_stmt_init($conn);
         if (!mysqli_stmt_prepare($stmt,$sql)){
             echo "sql error";
@@ -59,7 +59,7 @@ if (isset($_GET['appliance']) && isset($_GET['setstate'])) {
             }
             
             
-            $sql = 'UPDATE homeAutomation SET State=? WHERE Appliance=?';
+            $sql = "UPDATE homeAutomation SET State=? WHERE Appliance=? and Type='Light'";
             $stmt = mysqli_stmt_init($conn);
             if (!mysqli_stmt_prepare($stmt,$sql)){
                 echo "SQL error";
@@ -77,7 +77,7 @@ if (isset($_GET['appliance']) && isset($_GET['setstate'])) {
 
 else if (isset($_GET['appliance'])){
         $appliance = $_GET['appliance'];
-        $sql = 'SELECT State FROM `homeAutomation` WHERE Appliance=?;';
+        $sql = "SELECT State FROM `homeAutomation` WHERE Appliance=? and Type='Light';";
         $stmt = mysqli_stmt_init($conn);
         if (!mysqli_stmt_prepare($stmt,$sql)){
         echo "sql error";
@@ -102,7 +102,7 @@ else if (isset($_GET['appliance'])){
     $group = $_GET['group'];
     #echo $group;
     #echo $newState;
-    $sql = "UPDATE homeAutomation set State=? WHERE groupName=?;";
+    $sql = "UPDATE homeAutomation set State=? WHERE groupName=? and Type='Light';";
     $stmt = mysqli_stmt_init($conn);
 
     if (!mysqli_stmt_prepare($stmt,$sql)){
