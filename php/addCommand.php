@@ -7,7 +7,7 @@ if (isset($_GET['command'])){
     // Commands that should be run by the pi
     $forPi = array("Donny","netflix","back","LEDpower","fade",'TVPower','Mute','VolumeUp','VolumeUp5','VolumeDown','VolumeDown5','Input','Select', 'TVup','TVdown','TVleft','TVright',
     "ChannelUp","ChannelDown","ExtraInput1","ExtraInput2","ExtraInput3","Sleep","Donny",
-    "AC_Power","AC_Fan_Faster","AC_FanSlow","AC_Temp_Down","AC_Temp_Up");
+    "AC_Power","AC_Fan_Faster","AC_FanSlow","AC_Temp_Down","AC_Temp_Up","Slow");
 
     $forPi2 = array('Derek_AC_Power','Derek_AC_Temp_Up','Derek_AC_Temp_Down','Derek_AC_Fan_Low','Derek_AC_Fan_Medium','Derek_AC_Fan_High');
 

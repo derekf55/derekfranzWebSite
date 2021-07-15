@@ -37,6 +37,13 @@
             border-radius:100px;
             padding-bottom:40px;
         }
+        .btn-dual{
+            margin-bottom:10px;
+            margin-bottom: 20px;
+            margin-left: 10px;
+            display:block;
+            width: 300px;
+        }
     </style>
   </head>
   <body>
@@ -48,7 +55,9 @@
         </div>
         <div class="d-flex justify-content-center ">
             <button type="button" onclick="window.location.href = 'php/addCommand.php?command=fade';" 
-            class="btn  btn-lg btn-options" style="background:rgb(15, 28, 22); color:white;">Vibe</button>
+            class="btn  btn-lg btn-options btn-dual" style="background:rgb(15, 28, 22); color:white;">Vibe</button>
+            <button type="button" onclick="window.location.href = 'php/addCommand.php?command=Slow';" 
+            class="btn  btn-lg btn-options btn-dual" style="background:rgb(50, 168, 82); color:white;">Slow</button>
         </div>
         
         <div class="d-flex justify-content-center">
