@@ -1,2 +1,2 @@
-SELECT Name FROM PeopleHere
-ORDER by Name
+SELECT Name, Last_Updated FROM PeopleHere
+ORDER by Resident, Name

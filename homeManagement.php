@@ -42,7 +42,9 @@
   
   <?php
         require "php/connect.php";
-        require "php/admin_header.php";    
+        require "php/admin_header.php";  
+        $timezone = 'America/Chicago';
+        date_default_timezone_set($timezone);  
 
         $sql = "SELECT PriorityLevel FROM `personDetectionPriority` WHERE ID = 1";
         $results = mysqli_query($conn,$sql);
@@ -57,6 +59,13 @@
         $results = mysqli_query($conn,$sql);
         #echo $results;
         while ($row = mysqli_fetch_assoc($results)){
+            $timeArrived = strtotime($row['Last_Updated']);
+            // If the data hasnt been updated in at least three minutes assume that its bad
+            if ((time()-$timeArrived) > 180 ){
+                echo '<h2>Data too old</h2>';
+                echo '<h2>Check that presence detection is running</h2>';
+                break;
+            }
             echo '<h2 class="">'.$row['Name'].'</h2>';
             
         }
