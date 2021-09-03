@@ -113,7 +113,20 @@ else if (isset($_GET['appliance'])){
 	    mysqli_stmt_execute($stmt);
 	    echo $newState;
         }
-} else{
+} else if (isset($_GET["homeAssitantLight"]) && isset($_GET['changeState'])) {
+    echo "made it";
+    $sql = "INSERT INTO ProcessToRun (Command, Server, args) VALUES ('switch_light','server',?)";
+    $stmt = mysqli_stmt_init($conn);
+
+    if (!mysqli_stmt_prepare($stmt,$sql)){
+        echo "sql error";
+            exit();
+    } else{
+        mysqli_stmt_bind_param($stmt,"s",$_GET["homeAssitantLight"]);
+	    mysqli_stmt_execute($stmt);
+    }
+
+} else {
     echo "not set";
     exit();
 }
