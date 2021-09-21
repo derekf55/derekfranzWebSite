@@ -9,7 +9,24 @@ if (isset($_GET['command'])){
     "ChannelUp","ChannelDown","ExtraInput1","ExtraInput2","ExtraInput3","Sleep","Donny",
     "AC_Power","AC_Fan_Faster","AC_FanSlow","AC_Temp_Down","AC_Temp_Up","Slow");
 
-    $forPi2 = array('Derek_AC_Power','Derek_AC_Temp_Up','Derek_AC_Temp_Down','Derek_AC_Fan_Low','Derek_AC_Fan_Medium','Derek_AC_Fan_High');
+    $forPi2 = array('Derek_AC_Power','Derek_AC_Temp_Up','Derek_AC_Temp_Down','Derek_AC_Fan_Low','Derek_AC_Fan_Medium','Derek_AC_Fan_High','switch_light');
+
+    if (isset($_GET['device']) && $command == 'switch_light'){
+        $device = $_GET['device'];
+        $sql = "INSERT INTO `ProcessToRun` (`Command`, `Server`, `args`) VALUES ('switch_light', 'Server', ?)";
+        $stmt = mysqli_stmt_init($conn);
+        if (!mysqli_stmt_prepare($stmt,$sql)){
+            echo "Something went wrong here";
+            exit();
+        }
+        else{
+            mysqli_stmt_bind_param($stmt,"s",$device);
+            mysqli_stmt_execute($stmt);
+            header('Location: ' . $_SERVER['HTTP_REFERER']);
+        }
+        exit();
+    }
+
 
     // Add each of the buttons for the vibe lights
     $x = 1;
