@@ -56,6 +56,11 @@
         ?>
 
         <div class="d-flex justify-content-center">
+            <button type="button" onclick="window.location.href = 'php/addCommand.php?command=switch_light&device=light_3';" 
+            class="btn btn-lg btn-options" style="background:rgb(255, 186, 0);">Light 3 ON/OFF</button>
+        </div>
+
+        <div class="d-flex justify-content-center">
             <button type="button" onclick="window.location.href = 'index.php';" 
             class="btn btn-lg btn-options" style="background:rgb(255, 186, 0);">Back</button>
         </div>

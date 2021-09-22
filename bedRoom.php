@@ -31,27 +31,37 @@
   <body>
   <div class="container-fluid main-view">
         
+  <div class="d-flex justify-content-center">
+            <button type="button" onclick="window.location.href = 'php/addCommand.php?command=switch_light&device=desk_lamp';" 
+            class="btn btn-lg btn-options" style="background:rgb(255, 186, 0);">Desk Lamp ON/OFF</button>
+        </div>
+
+        <div class="d-flex justify-content-center">
+            <button type="button" onclick="window.location.href = 'php/addCommand.php?command=switch_light&device=christmas_lights';" 
+            class="btn btn-lg btn-options" style="background:rgb(255, 186, 0);">Light 3 ON/OFF</button>
+        </div>
+
 
   <?php
   // Lights 
-        require "php/connect.php";
-        require "php/admin_header.php";
-        $sql = "SELECT Name,State,Appliance FROM homeAutomation WHERE groupName = 'Derek''s Room' and Type = 'Light';";
-	    $results = mysqli_query($conn,$sql);
-	    while ($row = mysqli_fetch_assoc($results)){
-            $name = $row['Name'];
-            $state = $row['State'];
-            $appliance = $row['Appliance'];
-            if ($state == 0){
-                $state = 'on';
-            } else{
-                $state = 'off';
-            }
-            echo '<div class="d-flex justify-content-center ">';
-            echo '<button type="button" onclick="window.location.href = \'php/toggle.php?appliance='.$appliance.'&changeState=True\';" 
-            class="btn btn-lg btn-options" style="background:rgb(255, 186, 0);">Turn '.$name.' '.$state.'</button>';
-            echo '</div>';
-        }
+        // require "php/connect.php";
+        // require "php/admin_header.php";
+        // $sql = "SELECT Name,State,Appliance FROM homeAutomation WHERE groupName = 'Derek''s Room' and Type = 'Light';";
+	    // $results = mysqli_query($conn,$sql);
+	    // while ($row = mysqli_fetch_assoc($results)){
+        //     $name = $row['Name'];
+        //     $state = $row['State'];
+        //     $appliance = $row['Appliance'];
+        //     if ($state == 0){
+        //         $state = 'on';
+        //     } else{
+        //         $state = 'off';
+        //     }
+        //     echo '<div class="d-flex justify-content-center ">';
+        //     echo '<button type="button" onclick="window.location.href = \'php/toggle.php?appliance='.$appliance.'&changeState=True\';" 
+        //     class="btn btn-lg btn-options" style="background:rgb(255, 186, 0);">Turn '.$name.' '.$state.'</button>';
+        //     echo '</div>';
+        // }
         ?>
 
     <?php
