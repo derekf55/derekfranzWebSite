@@ -38,7 +38,7 @@
 
         <div class="d-flex justify-content-center">
             <button type="button" onclick="window.location.href = 'php/addCommand.php?command=switch_light&device=christmas_lights';" 
-            class="btn btn-lg btn-options" style="background:rgb(255, 186, 0);">Light 3 ON/OFF</button>
+            class="btn btn-lg btn-options" style="background:rgb(255, 186, 0);">Christmas Lights ON/OFF</button>
         </div>
 
 

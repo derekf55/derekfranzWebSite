@@ -36,28 +36,32 @@
   <div class="container-fluid main-view">
         
         <?php
-        require "php/connect.php";
-        $sql = "SELECT Name,State,Appliance FROM homeAutomation WHERE groupName = 'Living_Room';";
-	    $results = mysqli_query($conn,$sql);
-	    while ($row = mysqli_fetch_assoc($results)){
-            $name = $row['Name'];
-            $state = $row['State'];
-            $appliance = $row['Appliance'];
-            if ($state == 0){
-                $state = 'on';
-            } else{
-                $state = 'off';
-            }
-            echo '<div class="d-flex justify-content-center ">';
-            echo '<button type="button" onclick="window.location.href = \'php/toggle.php?appliance='.$appliance.'&changeState=True\';" 
-            class="btn btn-lg btn-options" style="background:rgb(255, 186, 0);">Turn '.$name.' '.$state.'</button>';
-            echo '</div>';
-        }
+        // require "php/connect.php";
+        // $sql = "SELECT Name,State,Appliance FROM homeAutomation WHERE groupName = 'Living_Room';";
+	    // $results = mysqli_query($conn,$sql);
+	    // while ($row = mysqli_fetch_assoc($results)){
+        //     $name = $row['Name'];
+        //     $state = $row['State'];
+        //     $appliance = $row['Appliance'];
+        //     if ($state == 0){
+        //         $state = 'on';
+        //     } else{
+        //         $state = 'off';
+        //     }
+        //     echo '<div class="d-flex justify-content-center ">';
+        //     echo '<button type="button" onclick="window.location.href = \'php/toggle.php?appliance='.$appliance.'&changeState=True\';" 
+        //     class="btn btn-lg btn-options" style="background:rgb(255, 186, 0);">Turn '.$name.' '.$state.'</button>';
+        //     echo '</div>';
+        // }
         ?>
 
         <div class="d-flex justify-content-center">
-            <button type="button" onclick="window.location.href = 'php/addCommand.php?command=switch_light&device=light_3';" 
-            class="btn btn-lg btn-options" style="background:rgb(255, 186, 0);">Light 3 ON/OFF</button>
+            <button type="button" onclick="window.location.href = 'php/addCommand.php?command=switch_light&device=light_1';" 
+            class="btn btn-lg btn-options" style="background:rgb(255, 186, 0);">Light 1 ON/OFF</button>
+        </div>
+        <div class="d-flex justify-content-center">
+            <button type="button" onclick="window.location.href = 'php/addCommand.php?command=switch_light&device=light_2';" 
+            class="btn btn-lg btn-options" style="background:rgb(255, 186, 0);">Light 2 ON/OFF</button>
         </div>
 
         <div class="d-flex justify-content-center">
