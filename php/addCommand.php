@@ -27,6 +27,28 @@ if (isset($_GET['command'])){
         exit();
     }
 
+    if ($command == "LEDpower") {
+        $sql = "SELECT State FROM homeAutomation WHERE Appliance = 'LED';";
+        $results = mysqli_query($conn,$sql);
+        while ($row = mysqli_fetch_assoc($results)){
+            if ($row['State'] == 1){
+                $state = 0;
+            } else{
+                $state = 1;
+            }
+        }
+        $sql = "UPDATE homeAutomation set State = ? WHERE Appliance = 'LED';";
+        $stmt = mysqli_stmt_init($conn);
+        if (!mysqli_stmt_prepare($stmt,$sql)){
+            echo "Something went wrong here";
+            exit();
+        }
+        else{
+            mysqli_stmt_bind_param($stmt,"s",$state);
+            mysqli_stmt_execute($stmt);
+        }
+    }
+
 
     // Add each of the buttons for the vibe lights
     $x = 1;
