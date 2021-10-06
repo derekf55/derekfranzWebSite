@@ -45,6 +45,19 @@
         </div>
 
         <div class="d-flex justify-content-center">
+            <h2 class="my-header">Select the speak to play out of<h2>
+          </div>
+
+          <div class="d-flex justify-content-center">
+            <select class="custom-select selector ttsInput" id="Speaker" name="Speaker">
+              <option name="Speaker" value="Derek's Room">Derek's Room </option>
+              <option name="Speaker" value="Living Room ">Living Room </option>
+              <option name="Speaker" value="Sam's Room">Sam's Room </option>
+            </select>
+
+      </div>
+
+        <div class="d-flex justify-content-center">
         <button id="submit" name="submit" type="submit" class="btn btn-primary btn-lg btn-options">Submit</button>
 
         </div>
