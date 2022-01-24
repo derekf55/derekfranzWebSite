@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{%load static %}
+{% block title %}
+Home Management
+{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static "/css/custom_styles.css"%}">
+<style>
+        
+    .main-view{
+        margin-top:50px;
+    }
+    .main-test{
+        align:center;
+    }
+    .btn-options{
+        display:block;
+        margin-bottom: 20px;
+        width: 300px;
+
+    }
+    .he{
+        text-align:center;
+    }
+    .people_here{
+        text-align:left;
+    }
+    .selection_options{
+        display:block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top:20px;
+        
+    }
+</style>
+
+
+
+<div class="container-fluid he">
+
+    <h1 class="">Priority Level {{current_priority.prioritylevel}}</h1>
+
+    {% for person in people_here%}
+        <h2>{{person.name}}</h2>
+    {% endfor %}
+
+    <div class="d-flex justify-content-center ">
+        <h2>Set Priority Level</h2>
+</div>
+    
+    <form method="POST">
+        {% csrf_token %}
+        <div class="d-flex justify-content-center he btn-options selection_options">
+        <select class=" form-select selector " id="priority" name="priority">
+        {% for priority in priorities%}
+        <option name="priority" value="{{priority.prioritylevel}}">{{priority.prioritylevel}}</option>
+        {% endfor %}
+        </select>
+    </div>
+
+    <div class="d-flex justify-content-center">
+        <button type="submit" 
+        class="btn btn-lg btn-primary btn-options">Submit</button>
+    </div>
+
+    </form>
+
+      
+
+    <div class="d-flex justify-content-center">
+        <button type="button" onclick="window.location.href = '/derek-ui';" 
+        class="btn btn-lg btn-options" style="background:rgb(255, 186, 0);">Back</button>
+    </div>
+
+</div>
+
+<script src="{% static "javascript/jquery/jquery-3.4.1.slim.min.js" %}" crossorigin="anonymous"></script>
+  <script src="{% static "javascript/jquery/popper.min.js" %}" crossorigin="anonymous"></script>
+  <script src="{% static "javascript/jquery/bootstrap.min.js" %}" crossorigin="anonymous"></script>
+
+{% endblock %}

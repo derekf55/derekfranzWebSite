@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block title %}
+Derek Franz Website
+{% endblock %}
+
+
+{% block content %}
+
+<style>
+        
+    .main-view{
+        margin-top:50px;
+    }
+    .main-test{
+        align:center;
+    }
+    .btn-options{
+        display:block;
+        margin-bottom: 20px;
+        width: 300px;
+
+    }
+    .ttsInput{
+        width: 300px;
+        margin-bottom: 10px;
+    }
+</style>
+</head>
+<body>
+<div class="container-fluid main-view">
+    
+    <form method="POST">
+        {% csrf_token %}
+    <div class="d-flex justify-content-center">
+        <h2 class="my-header">Type the text you'd like to be spoken<h2>
+      </div>
+
+      <div class="d-flex justify-content-center">
+            <input class="form-control ttsInput" name="tts" id="tts" type="text" autocomplete="off">
+    </div>
+
+    <div class="d-flex justify-content-center">
+        <select class="form-select selector  ttsInput" id="Speaker" name="Speaker">
+          <option name="Speaker" value="Derek's Room">Derek's Room </option>
+          <option name="Speaker" value="Living Room ">Living Room </option>
+          <option name="Speaker" value="Sam's Room">Sam's Room </option>
+        </select>
+
+  </div>
+
+    <div class="d-flex justify-content-center">
+    <button id="submit" name="submit" type="submit" class="btn btn-primary btn-lg btn-options">Submit</button>
+
+    </div>
+
+    </form>
+
+
+
+    <div class="d-flex justify-content-center">
+        <button type="button" onclick="window.location.href = '/derek-ui';" 
+        class="btn btn-lg btn-options" style="background:rgb(255, 186, 0);">Back</button>
+    </div>
+        
+    </div>
+</div>
+
+{% endblock %}

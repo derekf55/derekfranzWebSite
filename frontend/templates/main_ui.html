@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block title %}
+Derek Franz Website
+{% endblock %}
+
+{% block content %}
+<style>
+        
+    .main-view{
+        margin-top:50px;
+    }
+    .main-test{
+        align:center;
+    }
+    .btn-options{
+        display:block;
+        margin-bottom: 20px;
+        width: 300px;
+
+    }
+</style>
+
+<div class="container-fluid main-view">
+        
+    <div class="d-flex justify-content-center">
+        <button type="button" onclick="window.location.href = '/tvremote';" class="btn btn-dark btn-lg btn-options">TV Remote</button>
+</div>
+
+<div class="d-flex justify-content-center">
+    <button type="button" onclick="window.location.href = '/led';" class="btn  btn-lg btn-options" style="background:rgb(149, 50, 168); color:white;">LEDS</button>
+</div>
+
+    <div class="d-flex justify-content-center">
+        <button type="button" onclick="window.location.href = '/mariokart';" class="btn btn-primary btn-lg btn-options" >Mario Kart Track Picker</button>
+    </div>
+    
+
+<div class="d-flex justify-content-center ">
+        <button type="button" onclick="window.location.href = '/donny';" class="btn btn-lg btn-options" style="background:rgb(201, 89, 32);color:white;">Generate Quote</button>
+    </div>
+    <form action="{% url 'light-click/' %}" method="POST">
+        {% csrf_token %}
+    {% for light in lights %}
+        <div class="d-flex justify-content-center">
+            <button type="submit" name="light" value={{light.entity_id}} class="btn  btn-lg btn-options" 
+                style="background:rgb(255, 186, 0);">Turn {{light.friendly_name}} 
+                {% if light.state == 'on'%}
+                    off
+                {%else%}
+                    on
+                {%endif%}
+            </button>
+        </div>
+    
+        {% endfor %}
+
+    <div class="d-flex justify-content-center">
+        <button type="button" onclick="window.location.href = '{% url 'logout' %}';" 
+        class="btn btn-lg btn-options" style="background:rgb(112, 10, 109); color:white;">Logout</button>
+    </div>
+
+{% endblock %}

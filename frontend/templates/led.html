@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+{% block title %}
+LED Control
+{% endblock %}
+
+{% block content %}
+
+<style>
+        
+    .main-view{
+        margin-top:30px;
+    }
+    .main-test{
+        align:center;
+    }
+    .btn-options{
+        display:block;
+        margin-bottom: 20px;
+        width: 300px;
+    }
+    .button-side{
+        margin-right:5px;
+        margin-left:5px;
+        border-radius:100px;
+        padding-bottom:40px;
+    }
+    .btn-dual{
+        margin-bottom:10px;
+        margin-bottom: 20px;
+        margin-left: 10px;
+        display:block;
+        width: 300px;
+    }
+</style>
+
+<form action="{% url 'command-choice' %}" method="POST">
+    {% csrf_token %}
+<div class="container-fluid main-view">
+
+    <div class="d-flex justify-content-center ">
+        <button type="submit" name="command" value='LEDpower'
+        class="btn btn-primary btn-lg btn-options">Power</button>
+    </div>
+    <div class="d-flex justify-content-center ">
+        <button type="submit" name="command" value='fade' 
+        class="btn  btn-lg btn-options btn-dual" style="background:rgb(15, 28, 22); color:white;">Vibe</button>
+        <button type="submit" name="command" value='Slow'
+        class="btn  btn-lg btn-options btn-dual" style="background:rgb(50, 168, 82); color:white;">Slow</button>
+    </div>
+    
+    <div class="d-flex justify-content-center">
+        <button type="submit" name="command" value='red1'
+        class="btn btn-danger btn-lg btn-options button-side" ></button>
+        <button type="submit" name="command" value='green1' 
+        class="btn  btn-lg btn-options button-side" style="background:rgb(26, 128, 4);"></button>
+        <button type="submit" name="command" value='blue1'
+        class="btn  btn-lg btn-options button-side" style="background:rgb(5, 28, 120);"></button>
+        <button type="submit" name="command" value='white1' 
+        class="btn  btn-lg btn-options button-side" style="background:white; border: 2px solid black;"></button>
+    </div>
+    <div class="d-flex justify-content-center">
+        <button type="submit" name="command" value='red2'
+        class="btn  btn-lg btn-options button-side" style="background:rgb(209, 91, 0);"> </button>
+        <button type="submit" name="command" value='green2'
+        class="btn  btn-lg btn-options button-side" style="background:rgb(32, 158, 5);"></button>
+        <button type="submit" name="command" value='blue2' 
+        class="btn  btn-lg btn-options button-side" style="background:rgb(39, 73, 207);"></button>
+        <button type="submit" name="command" value='white2' 
+        class="btn  btn-lg btn-options button-side" style="background:rgb(227, 177, 219);"></button>
+    </div>  
+    <div class="d-flex justify-content-center">
+        <button type="submit" name="command" value='red3'
+        class="btn  btn-lg btn-options button-side" style="background:rgb(230, 143, 76);"></button>
+        <button type="submit" name="command" value='green3' 
+        class="btn  btn-lg btn-options button-side" style="background:rgb(11, 219, 216);"></button>
+        <button type="submit" name="command" value='blue3' 
+        class="btn  btn-lg btn-options button-side"style="background:rgb(69, 7, 102);"></button>
+        <button type="submit" name="command" value='white3' 
+        class="btn  btn-lg btn-options button-side" style="background:rgb(161, 127, 155);"></button>
+    </div>  
+    <div class="d-flex justify-content-center">
+        <button type="submit" name="command" value='red4' 
+        class="btn  btn-lg btn-options button-side" style="background:rgb(255, 185, 71);"></button>
+        <button type="submit" name="command" value='green4' 
+        class="btn  btn-lg btn-options button-side" style="background:rgb(9, 171, 169);"></button>
+        <button type="submit" name="command" value='blue4' 
+        class="btn  btn-lg btn-options button-side" style="background:rgb(137, 34, 191);"></button>
+        <button type="submit" name="command" value='white4' 
+        class="btn  btn-lg btn-options button-side" style="background:rgb(155, 188, 196);"></button>
+    </div>  
+    <div class="d-flex justify-content-center">
+        <button type="submit" name="command" value='red5' 
+        class="btn  btn-lg btn-options button-side"style="background:rgb(227, 226, 5);"></button>
+        <button type="submit" name="command" value='green5' 
+        class="btn  btn-lg btn-options button-side" style="background:rgb(5, 120, 118);"></button>
+        <button type="submit" name="command" value='blue5' 
+        class="btn  btn-lg btn-options button-side" style="background:rgb(219, 7, 235);"></button>
+        <button type="submit" name="command" value='white5' 
+        class="btn  btn-lg btn-options button-side" style="background:rgb(135, 166, 173);"></button>
+    </div>
+
+    <div class="d-flex justify-content-center">
+        <button type="button" onclick="window.location.href = '{{request.META.HTTP_REFERER}}';" 
+        class="btn btn-lg btn-options" style="background:rgb(255, 186, 0);">Back</button>
+    </div>
+
+    {% endblock %}

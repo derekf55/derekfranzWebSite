@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{%load static %}
+{% block title %}
+Sign Up
+{% endblock %}
+
+{% block content %}
+
+<style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+
+    .login-button {
+        width: 300px;
+        margin-top: 10px;
+    }
+    }
+  </style>
+  
+  <link href="{% static "css/login_css/signin.css" %}" rel="stylesheet">
+  <body class="text-center" data-gr-c-s-loaded="true">
+    <main role="main" class="container">
+
+        
+            <img class="mb-4" src="{% static "images/login/icons8-home.svg" %}"  alt="" width="150" height="150">
+            <h1 class="h3 mb-3 font-weight-normal">Welecome to Blue Haus</h1>
+            <form class="form-signin" method="POST">
+
+                {% csrf_token %}
+                
+            {{ form }}
+
+            <button name="login-submit" class="btn btn-lg btn-primary btn-block login-button" type="submit">Sign Up</button>
+        </form>
+        {% include "message_form_block.html" with messages=messages %}
+
+        <p class="mt-4 mb-3 text-muted">Already have an account? Click  <a href="{% url 'login' %}">here</a> to log in</p>
+        <p class="mt-4 mb-3 text-muted"><a href="forgot_pass_form.php">Forgot password</a></p>
+        <p class="mt-5 mb-3 text-muted">© Derek Franz</p>
+{% endblock %}

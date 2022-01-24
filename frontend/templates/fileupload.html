@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{%load static %}
+{% block title %}
+File Upload
+{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static "/css/custom_styles.css"%}">
+
+<style>
+    .he{
+        text-align:center;
+    }
+</style>
+
+<div class="container-fluid he">    
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <p>
+            
+            {{ form.f }}
+        </p>
+        <p><input type="submit" value="Upload" /></p>
+    </form>
+
+</div>
+
+{% endblock %}
